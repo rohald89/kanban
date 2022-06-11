@@ -21,4 +21,19 @@
   .body-md {
     @apply font-bold text-sm;
   }
+  .btn {
+    @apply rounded-full transition duration-200 text-white font-bold text-base p-2;
+    &__primary {
+      @apply bg-mainPurple text-white  hover:bg-mainPurpleHover;
+    }
+    &__secondary {
+      @apply bg-mainPurple bg-opacity-10 text-mainPurple hover:bg-opacity-25 dark:bg-opacity-100 dark:bg-white;
+    }
+    &__danger {
+      @apply bg-mainRed text-white  hover:bg-mainRedHover;
+    }
+    &.btn-lg {
+      @apply text-md font-bold p-4;
+    }
+  }
 }

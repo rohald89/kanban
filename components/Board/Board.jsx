@@ -1,7 +1,7 @@
 const Board = () => {
   return (
-    <div class="grid gap-4">
-Board    </div>
+    <div className="board">
+        Board</div>
   )
 }
 export default Board

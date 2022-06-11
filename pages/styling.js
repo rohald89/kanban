@@ -68,7 +68,7 @@ const styling = (props) => {
         Button Secondary (S)
       </button>
       <button className="bg-mainRed text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainRedHover">
-        Button Secondary (S)
+        Button Danger (S)
       </button>
     </div>
   );
