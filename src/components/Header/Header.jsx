@@ -23,7 +23,9 @@ const Header = () => {
             <button className="flex justify-center items-center" onClick={() => setShowMenu(true)}>
                 <h2 className="heading-lg ml-5 mr-2">Platform Launch</h2>
                 {
-                    width <= 768 && (
+                    width <= 768 && showMenu ? (
+                        <Image src="/icon-chevron-up.svg" alt="chevron" height={4} width={8} />
+                    ) : width <= 768 && (
                         <Image src="/icon-chevron-down.svg" alt="chevron" height={4} width={8} />
                     )
                 }

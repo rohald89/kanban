@@ -22,7 +22,7 @@ const Modal = (props) => {
       timeout={{ enter: 0, exit: 300 }}
     >
       <div
-        className={`modal opacity-0 bg-opacity-50 fixed flex transition duration-800 left-0 right-0 top-0 bottom-0 bg-black z-10 items-center justify-center`}
+        className={`modal fixed opacity-0 bg-opacity-50 flex transition left-0 right-0 top-0 bottom-0 bg-black z-10 items-center justify-center`}
       >
         <div className="modal-content -translate-y-[200px] transition">
           {props.children}

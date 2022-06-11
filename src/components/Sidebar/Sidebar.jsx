@@ -6,7 +6,7 @@ const Sidebar = () => {
     const {theme} = useTheme();
 
   return (
-    <div className="w-96 border-r border-lightGreyLine dark:border-darkGreyLine">
+    <div className="w-96 border-r bg-white  border-lightGreyLine dark:bg-darkGrey dark:border-darkGreyLine">
         <Image src={theme === 'dark' ? "/logo-light.svg" : "/logo-dark.svg"} alt="kanban logo" height={25} width={152}  />
         <ThemeToggle />
     </div>
