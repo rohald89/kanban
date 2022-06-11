@@ -7,19 +7,20 @@ const Header = () => {
 
   return (
     <header className="flex bg-white justify-between items-center p-4 border-b border-lightGreyLine dark:bg-darkGrey dark:text-white dark:border-darkGreyLine">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center">
         {
             width <= 768 && (
                 <Image src="/logo-mobile.svg" alt="kanban logo" height={25} width={24}  />
             )
         }
-        <h2 className="heading-lg">Platform Launch
-        </h2>
-        {
-            width <= 768 && (
-                <Image src="/icon-chevron-down.svg" alt="chevron" height={4} width={8}  />
-            )
-        }
+            <div className="flex justify-center items-center">
+                <h2 className="heading-lg ml-5 mr-2">Platform Launch</h2>
+                {
+                    width <= 768 && (
+                        <Image src="/icon-chevron-down.svg" alt="chevron" height={4} width={8} />
+                    )
+                }
+            </div>
         </div>
         <div className="flex items-center gap-4">
         {
