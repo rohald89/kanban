@@ -1,6 +1,10 @@
+import ThemeToggle from "./themeToggle"
+
 const Sidebar = () => {
   return (
-    <div>Sidebar</div>
+    <div>
+        <ThemeToggle />
+    </div>
   )
 }
 export default Sidebar
