@@ -38,19 +38,6 @@
   }
 }
 
-.modal.enter-done {
-  opacity: 1;
-  pointer-events: visible;
-}
-
-.modal.exit {
-  opacity: 0;
-}
-
-.modal.enter-done .modal-content {
-  transform: translateY(0);
-}
-
-.modal.exit .modal-content {
-  transform: translateY(-200px);
+.active-board {
+  @apply bg-mainPurple text-white rounded-r-full;
 }
