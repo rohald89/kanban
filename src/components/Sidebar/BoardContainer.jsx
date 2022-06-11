@@ -12,7 +12,7 @@ const BoardContainer = ({data}) => {
                 <h3
                 key={i}
                 onClick={() => setActiveBoard(i)}
-                className={`heading-m pl-6 w-11/12 font-bold text-mediumGrey py-3 rounded-r-full hover:bg-mainPurpleHover hover:text-white
+                className={`heading-m pl-6 w-11/12 transition duration-500 font-bold text-mediumGrey py-3 bg-opacity-0 bg-mainPurple rounded-r-full hover:bg-opacity-70 hover:text-white
                 ${i === activeBoard && 'active-board'}`}
                 >
                     {board.name}

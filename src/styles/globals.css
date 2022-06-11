@@ -39,5 +39,5 @@
 }
 
 .active-board {
-  @apply bg-mainPurple text-white rounded-r-full;
+  @apply bg-opacity-100 text-white;
 }

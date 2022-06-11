@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import useOnClickOutside from "@hooks/useOnClickOutside";
 
 const Modal = (props) => {
   const [isBrowser, setIsBrowser] = useState(false);
+  const modalRef = useRef();
+  useOnClickOutside(modalRef, () => props.onClose());
 
   const closeOnEscapeKeyDown = (e) => {
     if ((e.charCode || e.keyCode) === 27) {
@@ -54,7 +57,9 @@ const Modal = (props) => {
           exit="hidden"
           className={`modal fixed bg-opacity-50 flex left-0 right-0 top-0 bottom-0 bg-black z-50 items-center justify-center`}
         >
-          <motion.div variants={modalVariant}>{props.children}</motion.div>
+          <motion.div ref={modalRef} variants={modalVariant}>
+            {props.children}
+          </motion.div>
         </motion.div>
       ) : null}
     </AnimatePresence>
