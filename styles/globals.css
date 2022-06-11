@@ -4,21 +4,21 @@
 
 @layer components {
   .heading-xl {
-    @apply text-black font-bold text-xl;
+    @apply font-bold text-xl;
   }
   .heading-lg {
-    @apply text-black font-bold text-lg;
+    @apply font-bold text-lg;
   }
   .heading-md {
-    @apply text-black font-bold text-md;
+    @apply font-bold text-md;
   }
   .heading-sm {
     @apply font-bold text-sm text-mediumGrey tracking-widest;
   }
   .body-lg {
-    @apply text-black text-base;
+    @apply text-base;
   }
   .body-md {
-    @apply font-bold text-sm text-black;
+    @apply font-bold text-sm;
   }
 }

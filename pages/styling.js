@@ -1,6 +1,6 @@
 const styling = (props) => {
   return (
-    <div className="grid gap-4 m-4">
+    <div className="grid gap-4 p-4 bg-lightGrey dark:bg-veryDarkGrey">
       <div className="bg-mainPurple h-[50px]">mainPurple</div>
       <div className="bg-mainPurpleHover h-[50px]">mainPurpleHover</div>
       <div className="bg-black h-[50px] text-white">Black</div>
@@ -14,19 +14,19 @@ const styling = (props) => {
       <div className="bg-mainRedHover h-[50px]">mainRedHover</div>
 
       <h1 className="heading-xl text-mainPurple">heading-xl</h1>
-      <p className="heading-xl">
+      <p className="heading-xl text-black dark:text-white">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur,
         veniam?
       </p>
       <h1 className="heading-xl text-mainPurple">heading-lg</h1>
 
-      <p className="heading-lg">
+      <p className="heading-lg text-black dark:text-white">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur,
         veniam?
       </p>
       <h1 className="heading-xl text-mainPurple">heading-md</h1>
 
-      <p className="heading-md">
+      <p className="heading-md text-black dark:text-white">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur,
         veniam?
       </p>
@@ -38,7 +38,7 @@ const styling = (props) => {
       </p>
       <h1 className="heading-xl text-mainPurple">body-lg</h1>
 
-      <p className="body-lg">
+      <p className="body-lg text-black dark:text-white">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, minima
         quibusdam, sapiente, molestias accusamus deserunt officia expedita ea et
         voluptatibus asperiores unde cum. Voluptatum necessitatibus laboriosam
@@ -49,7 +49,7 @@ const styling = (props) => {
 
       <h1 className="heading-xl text-mainPurple">body-md</h1>
 
-      <p className="body-md">
+      <p className="body-md text-black dark:text-white">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, minima
         quibusdam, sapiente, molestias accusamus deserunt officia expedita ea et
         voluptatibus asperiores unde cum. Voluptatum necessitatibus laboriosam
@@ -57,6 +57,19 @@ const styling = (props) => {
         tempore totam! Ipsam dicta sequi autem nihil optio distinctio totam
         blanditiis, adipisci impedit. Commodi.
       </p>
+
+      <button className="bg-mainPurple text-white font-bold text-md rounded-full p-4 transition duration-200 hover:bg-mainPurpleHover">
+        Button Primary (L)
+      </button>
+      <button className="bg-mainPurple text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainPurpleHover">
+        Button Primary (S)
+      </button>
+      <button className="bg-mainPurple bg-opacity-10 text-mainPurple text-base rounded-full p-2 transition duration-200 hover:bg-opacity-25 dark:bg-opacity-100 dark:bg-white">
+        Button Secondary (S)
+      </button>
+      <button className="bg-mainRed text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainRedHover">
+        Button Secondary (S)
+      </button>
     </div>
   );
 };
