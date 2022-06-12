@@ -1,11 +1,9 @@
-import { v4 as uuidv4 } from 'uuid';
 import {Droppable, Draggable} from "react-beautiful-dnd";
 import Task from "./Task"
 import { useEffect, useState } from 'react';
 
 
 const Column = ({data}) => {
-  const id = uuidv4();
   const [winReady, setWinReady] = useState(false);
 
   useEffect(() => {
@@ -20,12 +18,12 @@ const Column = ({data}) => {
         </h3>
         {
             winReady ? (
-        <Droppable droppableId={id}>
+        <Droppable droppableId={data.slug}>
             {(provided) => (
             <ul className="flex flex-col space-y-5" {...provided.droppableProps} ref={provided.innerRef}>
                 {
                 data.tasks.map((task, i) => (
-                    <Draggable key={i} draggableId={`${id}--${i}`} index={i} >
+                    <Draggable key={i} draggableId={task.slug} index={i} >
                         {(provided) => {
                             const completedSubtasks = task.subtasks.reduce((acc, subtask) => subtask.isCompleted ? acc + 1 : acc, 0);
                             return (

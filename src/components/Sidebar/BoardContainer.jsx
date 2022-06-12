@@ -12,7 +12,7 @@ const BoardContainer = () => {
         <div className="mt-8">
             {
             boards.map((board, i) => (
-                <div className={`group cursor-pointer flex space-x-3 items-center pl-6 w-11/12 transition duration-500 bg-opacity-0 bg-mainPurple dark:hover:bg-white rounded-r-full hover:bg-opacity-10 ${currentBoard.name === boards[i].name && 'active-board'}`}>
+                <div key={i} className={`group cursor-pointer flex space-x-3 items-center pl-6 w-11/12 transition duration-500 bg-opacity-0 bg-mainPurple dark:hover:bg-white rounded-r-full hover:bg-opacity-10 ${currentBoard.name === boards[i].name && 'active-board'}`}>
                     <Image src="/icon-board.svg" alt="board" height={16} width={16} />
                     <h3
                     key={i}
