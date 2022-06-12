@@ -2,6 +2,7 @@ import {DragDropContext} from 'react-beautiful-dnd';
 import { useBoards } from "@src/context";
 import Column from "./Column";
 import EmptyBoard from "./EmptyBoard";
+import NewColumn from './NewColumn';
 
 const Board = () => {
   const {currentBoard, boards, setBoards} = useBoards();
@@ -81,13 +82,13 @@ const Board = () => {
         <DragDropContext
             onDragEnd={handleOnDragEnd}
         >
-
         {
             currentBoard.columns.map((column, i) => (
                 <Column data={column} key={i}/>
-                ))
-            }
-            </DragDropContext>
+            ))
+        }
+        </DragDropContext>
+        <NewColumn />
     </main>
   )
 }
