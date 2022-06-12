@@ -3,10 +3,15 @@ import useWindowSize from "@hooks/useWindowSize";
 import { useTheme } from "next-themes"
 import Image from "next/image";
 import ThemeToggle from "./themeToggle"
+import { useState } from "react";
+import SidebarToggle from "./SidebarToggle";
 
 const Sidebar = () => {
-    const {width} = useWindowSize();
-    const {theme} = useTheme();
+  const [showSidebar, setShowSidebar] = useState(true);
+  const {width} = useWindowSize();
+  const {theme} = useTheme();
+
+
   if (width < 768) return null;
 
   return (
@@ -16,6 +21,7 @@ const Sidebar = () => {
         </div>
         <BoardContainer/>
         <ThemeToggle />
+        <SidebarToggle show={showSidebar} />
     </div>
   )
 }

@@ -15,7 +15,7 @@ const ThemeToggle = () => {
     }
 
   return (
-    <div className="flex w-4/5 mx-auto space-x-6 justify-center items-center p-4 bg-lightGrey dark:bg-veryDarkGrey" >
+    <div className="flex p-4 w-4/5 mx-6 space-x-6 justify-center items-center bg-lightGrey dark:bg-veryDarkGrey" >
         <Image src="/icon-light-theme.svg" height={18} width={18} onClick={() => setTheme("light")} />
         <label htmlFor="default-toggle" className="w-16 inline-flex relative items-center cursor-pointer">
             <input type="checkbox" value="" id="default-toggle" className="sr-only peer" onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')} checked={theme === "dark"}/>

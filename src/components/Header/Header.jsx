@@ -1,15 +1,14 @@
 import Modal from "@components/Modal";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import useWindowSize from "@hooks/useWindowSize";
 import AddNewTask from "./AddNewTask";
-import useOnClickOutside from "@hooks/useOnClickOutside";
 import { useBoards } from "@src/context";
 
 const Header = () => {
   const {width} = useWindowSize();
   const [showMenu, setShowMenu] = useState(false);
-  const { boards, currentBoard } = useBoards();
+  const { currentBoard } = useBoards();
 
   return (
     <header className="flex bg-white justify-between items-center p-4 border-b border-lightGreyLine dark:bg-darkGrey dark:text-white dark:border-darkGreyLine">
@@ -19,7 +18,7 @@ const Header = () => {
                 <>
                 <Image src="/logo-mobile.svg" alt="kanban logo" height={25} width={24}  />
                 <button className="flex justify-center items-center" onClick={() => setShowMenu(true)}>
-                    <h2 className="heading-lg ml-5 mr-2">{boards[currentBoard].name}</h2>
+                    <h2 className="heading-lg ml-5 mr-2">{currentBoard.name}</h2>
                     {
                         showMenu ? (
                             <Image src="/icon-chevron-up.svg" alt="chevron" height={4} width={8} />
@@ -33,7 +32,7 @@ const Header = () => {
                 </Modal>
                 </>
             ) : (
-                <h2 className="heading-lg ml-5 mr-2">{boards[currentBoard].name}</h2>
+                <h2 className="heading-lg ml-5 mr-2">{currentBoard.name}</h2>
             )
         }
 

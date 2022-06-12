@@ -6,13 +6,14 @@ const BoardContext = createContext();
 
 function BoardProvider({ children }) {
   const [boards, setBoards] = useLocalStorage("boards", data.boards);
-  const [currentBoard, setCurrentBoard] = useState(0);
+  const [activeBoard, setActiveBoard] = useState(0);
 
+  const currentBoard = boards[activeBoard];
   const value = {
     boards,
     setBoards,
     currentBoard,
-    setCurrentBoard,
+    setActiveBoard,
   };
   return (
     <BoardContext.Provider value={value}>{children}</BoardContext.Provider>
