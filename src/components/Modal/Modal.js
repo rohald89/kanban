@@ -17,7 +17,7 @@ const Modal = (props) => {
   useEffect(() => {
     setIsBrowser(true);
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
-    return function cleanup() {
+    return () => {
       document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
     };
   }, []);
