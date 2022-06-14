@@ -3,6 +3,7 @@ import Task from "./Task"
 import { useEffect, useState } from 'react';
 
 const Column = ({data}) => {
+    console.log(data);
   const [winReady, setWinReady] = useState(false);
 
   useEffect(() => {
