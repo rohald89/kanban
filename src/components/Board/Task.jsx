@@ -1,10 +1,11 @@
+import { useState } from "react";
+import { Draggable } from "react-beautiful-dnd";
+
 import Modal from "@components/Modal";
 import TaskDetailModal from "@components/Modal/TaskDetailModal";
-import { useState } from "react";
-import {Draggable} from "react-beautiful-dnd";
 
 const Task = ({ data, index }) => {
-    const [openTaskModal, setOpenTaskModal] = useState(false);
+  const [openTaskModal, setOpenTaskModal] = useState(false);
   //number of completed subtasks
   const completedSubtasks = data.subtasks.reduce((acc, subtask) => subtask.isCompleted ? acc + 1 : acc, 0);
   return (

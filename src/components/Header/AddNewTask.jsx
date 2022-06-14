@@ -1,4 +1,5 @@
 import Modal from "@components/Modal";
+import AddNewTaskModal from "@components/Modal/AddNewTaskModal";
 import Button from "@components/shared/Button";
 import useWindowSize from "@hooks/useWindowSize";
 import Image from "next/image";
@@ -21,7 +22,7 @@ const AddNewTask = () => {
             </Button>
         )}
         <Modal show={openTaskModal} onClose={() => setOpenTaskModal(false)}>
-            NEW TASK MODAL
+            <AddNewTaskModal />
         </Modal>
     </>
   )

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const TaskDetailModal = ({ data, completedSubtasks }) => {
-    console.log(data);
+  console.log(data);
   return (
     <div className="w-[480px] min-w-11/12 mx-auto rounded-md p-6 bg-white dark:bg-darkGrey md:p-8">
         <div className="flex items-center justify-between gap-4 mb-6">
@@ -22,6 +22,9 @@ const TaskDetailModal = ({ data, completedSubtasks }) => {
                 </label>
             ))
         }
+        <h3 className="mt-6 mb-4 body-md text-mediumGrey dark:text-white">
+            Current Status
+        </h3>
     </div>
   )
 }
