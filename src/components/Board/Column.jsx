@@ -2,7 +2,7 @@ import {Droppable, Draggable} from "react-beautiful-dnd";
 import Task from "./Task"
 import { useEffect, useState } from 'react';
 
-const Column = ({data}) => {
+const Column = ({data, children}) => {
     console.log(data);
   const [winReady, setWinReady] = useState(false);
 
@@ -14,7 +14,8 @@ const Column = ({data}) => {
     <div className="w-[280px] shrink-0">
         <h3 className="heading-sm uppercase mb-6">
             <span className={`inline-block h-3 w-3 rounded-full bg-[#67E2AE] mr-3`}></span>
-            {data.name} ({data.tasks.length})
+            {data.name}
+            {/* ({data.tasks.length}) */}
         </h3>
         {
             winReady ? (
@@ -22,9 +23,10 @@ const Column = ({data}) => {
                 {(provided) => (
                 <ul className="flex h-full flex-col space-y-5" {...provided.droppableProps} ref={provided.innerRef}>
                     {
-                        data.tasks.map((task, i) => (
-                            <Task data={task} index={i} key={i} />
-                        ))
+                        children
+                        // data.tasks.map((task, i) => (
+                        //     <Task data={task} index={i} key={i} />
+                        // ))
                     }
                     {provided.placeholder}
                 </ul>
