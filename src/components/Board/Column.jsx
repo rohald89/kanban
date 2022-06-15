@@ -1,5 +1,4 @@
-import {Droppable, Draggable} from "react-beautiful-dnd";
-import Task from "./Task"
+import { Droppable } from "react-beautiful-dnd";
 import { useEffect, useState } from 'react';
 
 const Column = ({data, children}) => {
@@ -22,12 +21,7 @@ const Column = ({data, children}) => {
             <Droppable droppableId={data.slug}>
                 {(provided) => (
                 <ul className="flex h-full flex-col space-y-5" {...provided.droppableProps} ref={provided.innerRef}>
-                    {
-                        children
-                        // data.tasks.map((task, i) => (
-                        //     <Task data={task} index={i} key={i} />
-                        // ))
-                    }
+                    {children}
                     {provided.placeholder}
                 </ul>
                 )}

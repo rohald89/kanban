@@ -17,7 +17,7 @@ const Sidebar = () => {
   return (
     <div className="flex flex-col items-start py-7 row-span-2 border-r bg-white  border-lightGreyLine dark:bg-darkGrey dark:border-darkGreyLine">
         <div className="ml-6">
-        <Image src={theme === 'dark' ? "/logo-light.svg" : "/logo-dark.svg"} alt="kanban logo" height={25} width={152}  />
+            <Image src={theme === 'dark' ? "/logo-light.svg" : "/logo-dark.svg"} alt="kanban logo" height={25} width={152}  />
         </div>
         <BoardContainer/>
         <ThemeToggle />
