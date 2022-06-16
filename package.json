@@ -9,13 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "formik": "^2.2.9",
     "framer-motion": "^6.3.11",
     "next": "12.1.6",
     "next-themes": "^0.2.0",
     "react": "18.1.0",
     "react-beautiful-dnd": "^13.1.0",
     "react-dom": "18.1.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
