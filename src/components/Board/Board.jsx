@@ -1,6 +1,7 @@
 import {DragDropContext} from 'react-beautiful-dnd';
 import { useBoards } from "@src/context";
 import Column from "./Column";
+import Task from "./Task";
 import EmptyBoard from "./EmptyBoard";
 import NewColumn from './NewColumn';
 
@@ -84,7 +85,14 @@ const Board = () => {
         >
         {
             currentBoard.columns.map((column, i) => (
-                <Column data={column} key={i}/>
+                <Column data={column} key={i}>
+                    {
+                        column.tasks.map((taskId, j) => {
+                            const task = currentBoard.tasks.filter(task => task.id === taskId)[0];
+                            return <Task data={task} index={j} key={taskId} />
+                        })
+                    }
+                </Column>
             ))
         }
         </DragDropContext>

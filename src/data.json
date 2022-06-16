@@ -1,99 +1,79 @@
 {
     "boards": [
       {
-        "name": "EmptyBoard Test",
-        "slug": "emptyboard-test",
-        "id": 1,
-        "columns": []
-      },
-      {
-        "name": "Platform Launch",
-        "slug": "platform-launch",
-        "id": 2,
-        "columns": [
-          {
-            "name": "Todo",
-            "color": "#49C4E5",
-            "id": 1,
-            "slug": "todo",
-            "tasks": [
-              {
-                "title": "Build UI for onboarding flow",
-                "id": 1,
-                "slug": "build-ui-for-onboarding-flow",
-                "description": "",
-                "status": "Todo",
-                "subtasks": [
-                  {
-                    "title": "Sign up page",
-                    "isCompleted": true
-                  },
-                  {
-                    "title": "Sign in page",
-                    "isCompleted": false
-                  },
-                  {
-                    "title": "Welcome page",
-                    "isCompleted": false
-                  }
-                ]
-              },
-              {
-                "title": "Build UI for search",
-                "id": 2,
-                "slug": "build-ui-for-search",
-                "description": "",
-                "status": "Todo",
-                "subtasks": [
-                  {
-                    "title": "Search page",
-                    "isCompleted": false
-                  }
-                ]
-              },
-              {
-                "title": "Build settings UI",
-                "id": 3,
-                "slug": "build-settings-ui",
-                "description": "",
-                "status": "Todo",
-                "subtasks": [
-                  {
-                    "title": "Account page",
-                    "isCompleted": false
-                  },
-                  {
-                    "title": "Billing page",
-                    "isCompleted": false
-                  }
-                ]
-              },
-              {
-                "title": "QA and test all major user journeys",
-                "id": 4,
-                "slug": "qa-and-test-all-major-user-journeys",
-                "description": "Once we feel version one is ready, we need to rigorously test it both internally and externally to identify any major gaps.",
-                "status": "Todo",
-                "subtasks": [
-                  {
-                    "title": "Internal testing",
-                    "isCompleted": false
-                  },
-                  {
-                    "title": "External testing",
-                    "isCompleted": false
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Doing",
-            "id": 2,
-            "slug": "doing",
-            "color": "#8471F2",
-            "tasks": [
-              {
+        "id": 0,
+        "name": "Platform Launch Update",
+        "slug": "platform-launch-update",
+        "tasks": [
+            {
+              "title": "Build UI for onboarding flow",
+              "id": 1,
+              "slug": "build-ui-for-onboarding-flow",
+              "description": "",
+              "status": "Todo",
+              "subtasks": [
+                {
+                  "title": "Sign up page",
+                  "isCompleted": true
+                },
+                {
+                  "title": "Sign in page",
+                  "isCompleted": false
+                },
+                {
+                  "title": "Welcome page",
+                  "isCompleted": false
+                }
+              ]
+            },
+            {
+              "title": "Build UI for search",
+              "id": 2,
+              "slug": "build-ui-for-search",
+              "description": "",
+              "status": "Todo",
+              "subtasks": [
+                {
+                  "title": "Search page",
+                  "isCompleted": false
+                }
+              ]
+            },
+            {
+              "title": "Build settings UI",
+              "id": 3,
+              "slug": "build-settings-ui",
+              "description": "",
+              "status": "Todo",
+              "subtasks": [
+                {
+                  "title": "Account page",
+                  "isCompleted": false
+                },
+                {
+                  "title": "Billing page",
+                  "isCompleted": false
+                }
+              ]
+            },
+            {
+              "title": "QA and test all major user journeys",
+              "id": 0,
+              "slug": "qa-and-test-all-major-user-journeys",
+              "description": "Once we feel version one is ready, we need to rigorously test it both internally and externally to identify any major gaps.",
+              "status": "Todo",
+              "subtasks": [
+                {
+                  "title": "Internal testing",
+                  "isCompleted": false
+                },
+                {
+                  "title": "External testing",
+                  "isCompleted": false
+                }
+              ]
+            },
+            {
                 "title": "Design settings and search pages",
                 "id": 5,
                 "slug": "design-settings-and-search-pages",
@@ -192,7 +172,7 @@
               },
               {
                 "title": "Research pricing points of various competitors and trial different business models",
-                "id": 10,
+                "id": 4,
                 "slug": "research-pricing-points-of-various-competitors-and-trial-different-business-models",
                 "description": "We know what we're planning to build for version one. Now we need to finalise the first pricing model we'll use. Keep iterating the subtasks until we have a coherent proposition.",
                 "status": "Doing",
@@ -210,15 +190,7 @@
                     "isCompleted": false
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "name": "Done",
-            "id": 3,
-            "slug": "done",
-            "color": "#67E2AE",
-            "tasks": [
+              },
               {
                 "title": "Conduct 5 wireframe tests",
                 "id": 11,
@@ -314,8 +286,8 @@
                 ]
               },
               {
+                "id": 10,
                 "title": "Research the market",
-                "id": 17,
                 "slug": "research-the-market",
                 "description": "We need to get a solid overview of the market to ensure we have up-to-date estimates of market size and demand.",
                 "status": "Done",
@@ -330,178 +302,201 @@
                   }
                 ]
               }
-            ]
+          ],
+        "columns": [
+            {
+                "id": 1,
+                "name": "Todo",
+                "slug": "todo",
+                "color": "#49C4E5",
+                "tasks": [0,1,2,3]
+            },{
+                "name": "Doing",
+                "id": 2,
+                "slug": "doing",
+                "color": "#8471F2",
+                "tasks": [4,5,6,7,8,9]
+            },{
+                "name": "Done",
+                "id": 3,
+                "slug": "done",
+                "color": "#67E2AE",
+                "tasks": [10,11,12,13,14,15,16]
+            }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Marketing Plan",
+        "slug": "marketing-plan",
+        "tasks": [
+            {
+                "id": 18,
+                "title": "Plan Product Hunt launch",
+                "slug": "plan-product-hunt-launch",
+                "description": "",
+                "status": "Todo",
+                "subtasks": [
+                  {
+                    "title": "Find hunter",
+                    "isCompleted": false
+                  },
+                  {
+                    "title": "Gather assets",
+                    "isCompleted": false
+                  },
+                  {
+                    "title": "Draft product page",
+                    "isCompleted": false
+                  },
+                  {
+                    "title": "Notify customers",
+                    "isCompleted": false
+                  },
+                  {
+                    "title": "Notify network",
+                    "isCompleted": false
+                  },
+                  {
+                    "title": "Launch!",
+                    "isCompleted": false
+                  }
+                ]
+              },
+              {
+                "title": "Share on Show HN",
+                  "id": 19,
+                  "slug": "share-on-show-hn",
+                "description": "",
+                "status": "",
+                "subtasks": [
+                  {
+                    "title": "Draft out HN post",
+                    "isCompleted": false
+                  },
+                  {
+                    "title": "Get feedback and refine",
+                    "isCompleted": false
+                  },
+                  {
+                    "title": "Publish post",
+                    "isCompleted": false
+                  }
+                ]
+              },
+              {
+                "title": "Write launch article to publish on multiple channels",
+                  "id": 17,
+                  "slug": "write-launch-article-to-publish-on-multiple-channels",
+                "description": "",
+                "status": "",
+                "subtasks": [
+                  {
+                    "title": "Write article",
+                    "isCompleted": false
+                  },
+                  {
+                    "title": "Publish on LinkedIn",
+                    "isCompleted": false
+                  },
+                  {
+                    "title": "Publish on Inndie Hackers",
+                    "isCompleted": false
+                  },
+                  {
+                    "title": "Publish on Medium",
+                    "isCompleted": false
+                  }
+                ]
+              }
+
+        ],
+        "columns": [
+          {
+            "id": 4,
+            "name": "Todo",
+            "slug": "todo",
+            "color": "#49C4E5",
+            "tasks": [17,18,19]
+          },
+          {
+              "id": 5,
+            "name": "Doing",
+              "slug": "doing",
+              "color": "#49C4E5",
+            "tasks": []
+          },
+          {
+              "id": 6,
+              "name": "Done",
+              "slug": "done",
+              "color": "#49C4E5",
+            "tasks": []
           }
         ]
       },
-    {
-      "name": "Marketing Plan",
-      "id": 3,
-      "slug": "marketing-plan",
-      "columns": [
-        {
-          "name": "Todo",
-          "slug": "todo",
-          "id": 4,
-          "tasks": [
-            {
-              "title": "Plan Product Hunt launch",
-                "id": 18,
-                "slug": "plan-product-hunt-launch",
-              "description": "",
-              "status": "Todo",
-              "subtasks": [
-                {
-                  "title": "Find hunter",
-                  "isCompleted": false
-                },
-                {
-                  "title": "Gather assets",
-                  "isCompleted": false
-                },
-                {
-                  "title": "Draft product page",
-                  "isCompleted": false
-                },
-                {
-                  "title": "Notify customers",
-                  "isCompleted": false
-                },
-                {
-                  "title": "Notify network",
-                  "isCompleted": false
-                },
-                {
-                  "title": "Launch!",
-                  "isCompleted": false
-                }
-              ]
-            },
-            {
-              "title": "Share on Show HN",
-                "id": 19,
-                "slug": "share-on-show-hn",
-              "description": "",
-              "status": "",
-              "subtasks": [
-                {
-                  "title": "Draft out HN post",
-                  "isCompleted": false
-                },
-                {
-                  "title": "Get feedback and refine",
-                  "isCompleted": false
-                },
-                {
-                  "title": "Publish post",
-                  "isCompleted": false
-                }
-              ]
-            },
-            {
-              "title": "Write launch article to publish on multiple channels",
-                "id": 20,
-                "slug": "write-launch-article-to-publish-on-multiple-channels",
-              "description": "",
-              "status": "",
-              "subtasks": [
-                {
-                  "title": "Write article",
-                  "isCompleted": false
-                },
-                {
-                  "title": "Publish on LinkedIn",
-                  "isCompleted": false
-                },
-                {
-                  "title": "Publish on Inndie Hackers",
-                  "isCompleted": false
-                },
-                {
-                  "title": "Publish on Medium",
-                  "isCompleted": false
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Doing",
-            "id": 5,
-            "slug": "doing",
-          "tasks": []
-        },
-        {
-          "name": "Done",
-            "id": 6,
-            "slug": "done",
-          "tasks": []
-        }
-      ]
-    },
-    {
-      "name": "Roadmap",
-      "id": 4,
+      {
+        "id": 4,
+        "name": "Roadmap",
         "slug": "roadmap",
-      "columns": [
-        {
-          "name": "Now",
-            "id": 7,
-            "slug": "now",
-          "tasks": [
-            {
-              "title": "Launch version one",
-                "id": 21,
-                "slug": "launch-version-one",
-              "description": "",
-              "status": "",
-              "subtasks": [
-                {
-                  "title": "Launch privately to our waitlist",
-                  "isCompleted": false
-                },
-                {
-                  "title": "Launch publicly on PH, HN, etc.",
-                  "isCompleted": false
-                }
-              ]
-            },
-            {
-              "title": "Review early feedback and plan next steps for roadmap",
-                "id": 22,
-                "slug": "review-early-feedback-and-plan-next-steps-for-roadmap",
-              "description": "Beyond the initial launch, we're keeping the initial roadmap completely empty. This meeting will help us plan out our next steps based on actual customer feedback.",
-              "status": "",
-              "subtasks": [
-                {
-                  "title": "Interview 10 customers",
-                  "isCompleted": false
-                },
-                {
-                  "title": "Review common customer pain points and suggestions",
-                  "isCompleted": false
-                },
-                {
-                  "title": "Outline next steps for our roadmap",
-                  "isCompleted": false
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Next",
-            "id": 8,
-            "slug": "next",
-          "tasks": []
-        },
-        {
-          "name": "Later",
-            "id": 9,
-            "slug": "later",
-          "tasks": []
-        }
-      ]
-    }
+        "tasks": [{
+            "id": 21,
+            "title": "Launch version one",
+            "slug": "launch-version-one",
+            "description": "",
+            "status": "Now",
+            "subtasks": [
+              {
+                "title": "Launch privately to our waitlist",
+                "isCompleted": false
+              },
+              {
+                "title": "Launch publicly on PH, HN, etc.",
+                "isCompleted": false
+              }
+            ]
+          },
+          {
+            "title": "Review early feedback and plan next steps for roadmap",
+              "id": 20,
+              "slug": "review-early-feedback-and-plan-next-steps-for-roadmap",
+            "description": "Beyond the initial launch, we're keeping the initial roadmap completely empty. This meeting will help us plan out our next steps based on actual customer feedback.",
+            "status": "Now",
+            "subtasks": [
+              {
+                "title": "Interview 10 customers",
+                "isCompleted": false
+              },
+              {
+                "title": "Review common customer pain points and suggestions",
+                "isCompleted": false
+              },
+              {
+                "title": "Outline next steps for our roadmap",
+                "isCompleted": false
+              }
+            ]
+          }],
+        "columns": [
+          {
+            "name": "Now",
+              "id": 7,
+              "slug": "now",
+            "tasks": [20,21]
+          },
+          {
+            "name": "Next",
+              "id": 8,
+              "slug": "next",
+            "tasks": []
+          },
+          {
+            "name": "Later",
+              "id": 9,
+              "slug": "later",
+            "tasks": []
+          }
+        ]
+      }
   ]
 }

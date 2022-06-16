@@ -41,3 +41,16 @@
 .active-board {
   @apply bg-opacity-100 text-white;
 }
+
+.task-status-todo,
+.task-status-now {
+  @apply bg-[#49C4E5];
+}
+.task-status-doing,
+.task-status-next {
+  @apply bg-[#8471F2];
+}
+.task-status-done,
+.task-status-later {
+  @apply bg-[#67E2AE];
+}
