@@ -2,7 +2,6 @@ import { Droppable } from "react-beautiful-dnd";
 import { useEffect, useState } from 'react';
 
 const Column = ({data, children}) => {
-    console.log(data);
   const [winReady, setWinReady] = useState(false);
 
   useEffect(() => {

@@ -9,10 +9,14 @@ function BoardProvider({ children }) {
   const [activeBoard, setActiveBoard] = useState(0);
 
   const currentBoard = boards[activeBoard];
+
+  const columns = currentBoard.columns;
+
   const value = {
     boards,
     setBoards,
     currentBoard,
+    columns,
     setActiveBoard,
   };
   return (

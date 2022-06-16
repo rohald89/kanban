@@ -8,7 +8,6 @@ import NewColumn from './NewColumn';
 const Board = () => {
   const {currentBoard, boards, setBoards} = useBoards();
 
-  console.log(currentBoard);
   function handleOnDragEnd(result) {
       const {source, destination} = result;
     if (!destination) {

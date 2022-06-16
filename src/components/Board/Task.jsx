@@ -6,6 +6,7 @@ import TaskDetailModal from "@components/Modal/TaskDetailModal";
 
 const Task = ({ data, index }) => {
   const [openTaskModal, setOpenTaskModal] = useState(false);
+
   //number of completed subtasks
   const completedSubtasks = data.subtasks.reduce((acc, subtask) => subtask.isCompleted ? acc + 1 : acc, 0);
   return (
