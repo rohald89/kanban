@@ -87,10 +87,9 @@ const Board = () => {
             currentBoard.columns.map((column, i) => (
                 <Column data={column} key={i}>
                     {
-                        currentBoard.tasks.map((task, j) => {
-                            if(task.status === column.name) {
-                                return <Task data={task} index={j} key={j} />
-                            }
+                        column.tasks.map((taskId, j) => {
+                            const task = currentBoard.tasks.filter(task => task.id === taskId)[0];
+                            return <Task data={task} index={j} key={taskId} />
                         })
                     }
                 </Column>
