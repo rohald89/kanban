@@ -1,7 +1,6 @@
 import BoardContainer from "./BoardContainer";
 import useWindowSize from "@hooks/useWindowSize";
-import ThemeToggle from "./themeToggle"
-import { useState } from "react";
+import ThemeToggle from "./ThemeToggle"
 import SidebarToggle from "./SidebarToggle";
 
 const Sidebar = ({ showSidebar, setShowSidebar}) => {
@@ -9,7 +8,7 @@ const Sidebar = ({ showSidebar, setShowSidebar}) => {
   if (width < 768) return null;
 
   return (
-        <div className={`flex flex-col items-start py-7 border-r bg-white  border-lightGreyLine dark:bg-darkGrey dark:border-darkGreyLine ${showSidebar ? 'translate-x-0' : '-translate-x-[300px]'}`}>
+        <div className={`flex flex-col items-start py-7 border-r bg-white  border-lightGreyLine dark:bg-darkGrey dark:border-darkGreyLine ${showSidebar ? 'translate-x-0 w-[300px]' : '-translate-x-[300px] w-0'}`}>
             <BoardContainer/>
             <ThemeToggle />
             <SidebarToggle show={showSidebar} setShow={setShowSidebar}/>

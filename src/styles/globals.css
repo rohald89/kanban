@@ -54,3 +54,7 @@
 .task-status-later {
   @apply bg-[#67E2AE];
 }
+
+.board-height {
+  height: calc(100% - 84px);
+}

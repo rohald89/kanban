@@ -13,7 +13,7 @@ const Header = ({ sidebarVisible }) => {
   const {theme} = useTheme();
 
   return (
-    <header className="flex col-span-2 bg-white justify-between items-center p-4 border-b border-lightGreyLine dark:bg-darkGrey dark:text-white dark:border-darkGreyLine">
+    <header className="flex bg-white justify-between items-center p-4 border-b border-lightGreyLine dark:bg-darkGrey dark:text-white dark:border-darkGreyLine">
         <div className="flex items-center">
         {
             width <= 768 ? (
