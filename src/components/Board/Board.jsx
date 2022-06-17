@@ -5,7 +5,7 @@ import Task from "./Task";
 import EmptyBoard from "./EmptyBoard";
 import NewColumn from './NewColumn';
 
-const Board = () => {
+const Board = ({sidebarVisible}) => {
   const {currentBoard, boards, setBoards} = useBoards();
 
   function handleOnDragEnd(result) {
@@ -78,7 +78,7 @@ const Board = () => {
   if(!currentBoard.columns.length) return <EmptyBoard />
 
   return (
-    <main className="p-4 space-x-4 overflow-scroll bg-lightGrey dark:bg-veryDarkGrey flex">
+    <main className={`p-4 space-x-4 overflow-scroll bg-lightGrey dark:bg-veryDarkGrey flex ${sidebarVisible ? 'col-span-2' : 'col-span-2'}`}>
         <DragDropContext
             onDragEnd={handleOnDragEnd}
         >

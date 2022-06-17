@@ -1,11 +1,10 @@
 import { useBoards } from "@src/context";
-import Image from "next/image";
 
 const BoardContainer = () => {
     const { boards, currentBoard, setActiveBoard } = useBoards();
 
   return (
-    <div className="flex-1 my-16 w-full">
+    <div className="flex-1 w-full">
         <h3 className="heading-sm ml-6 uppercase">All boards ({boards.length})</h3>
         <div className="mt-8">
             {
