@@ -9,7 +9,7 @@ const Board = () => {
   const {currentBoard, boards, setBoards} = useBoards();
 
   function handleOnDragEnd(result) {
-      const {source, destination} = result;
+    const {source, destination} = result;
     if (!destination) {
       return;
     }

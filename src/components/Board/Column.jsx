@@ -12,8 +12,7 @@ const Column = ({data, children}) => {
     <div className="w-[280px] shrink-0">
         <h3 className="heading-sm uppercase mb-6">
             <span className={`task-status-${data.slug} inline-block h-3 w-3 rounded-full mr-3`}></span>
-            {data.name}
-            {/* ({data.tasks.length}) */}
+            {data.name} ({data.tasks.length})
         </h3>
         {
             winReady ? (

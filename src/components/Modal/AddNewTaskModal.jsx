@@ -1,9 +1,10 @@
+import { v4 as uuidv4 } from 'uuid';
 import Button from "@components/shared/Button"
 import { useBoards } from "@src/context";
 import { useFormik } from "formik"
 
 const AddNewTaskModal = () => {
-    const { columns } = useBoards();
+    const { columns, createTask } = useBoards();
 
     const formik = useFormik({
         initialValues: {
@@ -14,6 +15,7 @@ const AddNewTaskModal = () => {
         },
         onSubmit: (values) => {
             console.log(values)
+            createTask(values)
         }
     })
     return (
@@ -83,7 +85,7 @@ const AddNewTaskModal = () => {
                     className="w-full px-4 py-2 my-2 block rounded border border-mediumGrey">
                     <option value="">Select Status</option>
                     {columns.map((column, i) => (
-                        <option value={column.name} class="text-mediumGrey block px-4 py-2 text-sm">{column.name}</option>
+                        <option key={i} value={column.name} className="text-mediumGrey block px-4 py-2 text-sm">{column.name}</option>
                     ))}
                 </select>
             </label>
