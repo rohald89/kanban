@@ -9,20 +9,11 @@ const Sidebar = ({ showSidebar, setShowSidebar}) => {
   if (width < 768) return null;
 
   return (
-    <>
-    {
-    showSidebar === true ? (
-        <div className="flex flex-col items-start py-7 border-r bg-white  border-lightGreyLine dark:bg-darkGrey dark:border-darkGreyLine">
-        <BoardContainer/>
-        <ThemeToggle />
-        <SidebarToggle show={showSidebar} />
+        <div className={`flex flex-col items-start py-7 border-r bg-white  border-lightGreyLine dark:bg-darkGrey dark:border-darkGreyLine ${showSidebar ? 'translate-x-0' : '-translate-x-[300px]'}`}>
+            <BoardContainer/>
+            <ThemeToggle />
+            <SidebarToggle show={showSidebar} setShow={setShowSidebar}/>
         </div>
-    ) : (
-        <div className="absolute bottom-0 left-0 w-12 h-12">
-            <SidebarToggle show={showSidebar} />
-        </div>
-    )}
-    </>
   )
 }
 export default Sidebar

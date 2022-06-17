@@ -78,7 +78,7 @@ const Board = ({sidebarVisible}) => {
   if(!currentBoard.columns.length) return <EmptyBoard />
 
   return (
-    <main className={`p-4 space-x-4 overflow-scroll bg-lightGrey dark:bg-veryDarkGrey flex ${sidebarVisible ? 'col-span-2' : 'col-span-2'}`}>
+    <main className='p-4 space-x-4 overflow-scroll bg-lightGrey dark:bg-veryDarkGrey flex'>
         <DragDropContext
             onDragEnd={handleOnDragEnd}
         >
