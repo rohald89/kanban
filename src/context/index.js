@@ -23,12 +23,34 @@ function BoardProvider({ children }) {
     setBoards([...boards]);
   };
 
+  const toggleSubtask = (taskId, subtaskId) => {
+    console.log(taskId, subtaskId);
+    const task = currentBoard.tasks.find((task) => task.id === taskId);
+    const subtask = task.subtasks[subtaskId];
+    subtask.isCompleted
+      ? (subtask.isCompleted = false)
+      : (subtask.isCompleted = true);
+    setBoards([...boards]);
+  };
+
+  const changeTaskStatus = (taskId, status) => {
+    const task = currentBoard.tasks.find((task) => task.id === taskId);
+    const column = columns.find((column) => column.name === status);
+    const prevColumn = columns.find((column) => column.name === task.status);
+    prevColumn.tasks = prevColumn.tasks.filter((id) => id !== taskId);
+    column.tasks.push(taskId);
+    task.status = column.name;
+    setBoards([...boards]);
+  };
+
   const value = {
     boards,
     setBoards,
     currentBoard,
     columns,
+    toggleSubtask,
     createTask,
+    changeTaskStatus,
     setActiveBoard,
   };
   return (

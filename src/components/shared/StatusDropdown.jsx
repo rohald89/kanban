@@ -5,7 +5,7 @@ import { useState } from "react";
 const StatusDropdown = ({ data }) => {
   const [status, setStatus] = useState(data.status);
   const [showMenu, setShowMenu] = useState(false);
-  const { columns } = useBoards();
+  const { columns, changeTaskStatus } = useBoards();
 
   const menuVariations = {
     closed: {
@@ -28,7 +28,7 @@ const StatusDropdown = ({ data }) => {
         >
             {status}
             <svg className="-mr-1 ml-2 h-5 w-5 fill-mainPurple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
         </button>
         <motion.div
@@ -39,18 +39,20 @@ const StatusDropdown = ({ data }) => {
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"
-        tabindex="-1">
+        tabIndex="-1">
             <div className="py-1" role="none">
                 {columns.map((column, i) => (
                     <a
                     onClick={() => {
                         setStatus(column.name);
                         setShowMenu(false)
+                        changeTaskStatus(data.id, column.name);
                     }}
+                    key={i}
                     href="#"
                     className="text-mediumGrey block px-4 py-2 text-sm hover:text-mainPurple hover:bg-mainPurple dark:hover:bg-white hover:bg-opacity-10"
                     role="menuitem"
-                    tabindex="-1"
+                    tabIndex="-1"
                     id="menu-item-0">
                         {column.name}
                     </a>
