@@ -24,7 +24,7 @@ const AddNewTaskModal = () => {
         className="w-[480px] min-w-11/12 mx-auto rounded-md p-6 bg-white dark:bg-darkGrey md:p-8">
             <h1 className="heading-lg mb-6">Add New Task</h1>
 
-            <label className="body-md text-mediumGrey block">
+            <label className="body-md text-mediumGrey dark:text-white block">
                 Title
                 <input
                     id="title"
@@ -33,11 +33,11 @@ const AddNewTaskModal = () => {
                     onChange={formik.handleChange}
                     value={formik.values.title}
                     placeholder="e.g. Take coffee break"
-                    className="w-full px-4 py-2 my-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"
+                    className="bg-white dark:bg-darkGrey body-lg w-full px-4 py-2 my-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"
                 />
             </label>
 
-            <label className="body-md text-mediumGrey mt-6 block">
+            <label className="body-md text-mediumGrey dark:text-white mt-6 block">
                 Description
                 <textarea
                     id="description"
@@ -46,11 +46,11 @@ const AddNewTaskModal = () => {
                     onChange={formik.handleChange}
                     value={formik.values.description}
                     placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."
-                    className="w-full h-28 px-4 py-2 my-2 block rounded text-black dark:text-white resize-none border border-mediumGrey border-opacity-25 placeholder:opacity-25"
+                    className="bg-white dark:bg-darkGrey body-lg w-full h-28 px-4 py-2 my-2 block rounded text-black dark:text-white resize-none border border-mediumGrey border-opacity-25 placeholder:opacity-25"
                 />
             </label>
 
-            <label className="body-md text-mediumGrey mt-6 block">
+            <label className="body-md text-mediumGrey dark:text-white mt-6 block">
                 Subtask
                 <input
                     id="subtasks[0]"
@@ -59,7 +59,7 @@ const AddNewTaskModal = () => {
                     onChange={formik.handleChange}
                     value={formik.values.subtasks[0]}
                     placeholder="e.g. Make coffee"
-                    className="w-full px-4 py-2 my-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"
+                    className="bg-white dark:bg-darkGrey body-lg w-full px-4 py-2 my-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"
                 />
                 <input
                     id="subtasks[1]"
@@ -68,12 +68,12 @@ const AddNewTaskModal = () => {
                     onChange={formik.handleChange}
                     value={formik.values.subtasks[1]}
                     placeholder="e.g. Drink coffee & smile"
-                    className="w-full px-4 py-2 mb-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"/>
+                    className="bg-white dark:bg-darkGrey body-lg w-full px-4 py-2 mb-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"/>
             </label>
 
             <Button className="w-full bg-mainPurple bg-opacity-10 text-mainPurple bold rounded-full p-2 pt-3 transition duration-200 hover:bg-opacity-25 dark:bg-opacity-100 dark:bg-white">+ Add New Subtask</Button>
 
-            <label className="body-md text-mediumGrey block mt-6">
+            <label className="body-md text-mediumGrey dark:text-white block mt-6">
                 Status
                 <select
                     id="status"
@@ -82,7 +82,7 @@ const AddNewTaskModal = () => {
                     value={formik.values.status}
                     type="text"
                     placeholder="e.g. Take coffee break"
-                    className="w-full px-4 py-2 my-2 block rounded border border-mediumGrey">
+                    className="bg-white dark:bg-darkGrey body-lg w-full px-4 py-2 my-2 block rounded border border-mediumGrey">
                     <option value="">Select Status</option>
                     {columns.map((column, i) => (
                         <option key={i} value={column.name} className="text-mediumGrey block px-4 py-2 text-sm">{column.name}</option>

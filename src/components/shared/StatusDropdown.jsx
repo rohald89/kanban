@@ -50,7 +50,7 @@ const StatusDropdown = ({ data }) => {
                     }}
                     key={i}
                     href="#"
-                    className="text-mediumGrey block px-4 py-2 text-sm hover:text-mainPurple hover:bg-mainPurple dark:hover:bg-white hover:bg-opacity-10"
+                    className="text-mediumGrey block px-4 py-2 text-sm hover:text-mainPurple hover:bg-mainPurple dark:hover:bg-white hover:bg-opacity-10 dark:hover:bg-opacity-10"
                     role="menuitem"
                     tabIndex="-1"
                     id="menu-item-0">

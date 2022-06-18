@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import useLocalStorage from "@hooks/useLocalStorage";
 import data from "../data.json";
 import stringToSlug from "@utils/stringToSlug";
@@ -14,13 +15,34 @@ function BoardProvider({ children }) {
   const columns = currentBoard.columns;
 
   const createTask = (task) => {
-    task.id = currentBoard.tasks.length;
+    task.id = uuidv4();
     const column = columns.find((column) => column.name === task.status);
     task.status = column.name;
-    task.name = stringToSlug(task.title);
+    task.subtasks = task.subtasks.map((subtask) => {
+      return {
+        title: subtask,
+        isCompleted: false,
+      };
+    });
+    task.slug = stringToSlug(task.title);
+    console.log(task);
     column.tasks.push(task.id);
     currentBoard.tasks.push(task);
     setBoards([...boards]);
+  };
+
+  const createBoard = (board) => {
+    board.id = uuidv4();
+    board.columns = board.columns.map((column) => {
+      return {
+        id: uuidv4(),
+        name: column,
+        slug: stringToSlug(column),
+        tasks: [],
+      };
+    });
+    board.tasks = [];
+    setBoards([...boards, board]);
   };
 
   const toggleSubtask = (taskId, subtaskId) => {
@@ -97,6 +119,7 @@ function BoardProvider({ children }) {
     setBoards,
     currentBoard,
     columns,
+    createBoard,
     toggleSubtask,
     createTask,
     changeTaskStatus,
