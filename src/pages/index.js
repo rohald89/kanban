@@ -11,7 +11,7 @@ export default function Home() {
       <Header sidebarVisible={showSidebar} />
       <div className="flex board-height">
         <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
-        <Board sidebarVisible={showSidebar} />
+        <Board />
       </div>
     </div>
   );

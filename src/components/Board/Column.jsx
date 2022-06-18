@@ -16,7 +16,7 @@ const Column = ({data, children}) => {
         </h3>
         {
             winReady ? (
-            <Droppable droppableId={data.slug}>
+            <Droppable droppableId={data.name}>
                 {(provided) => (
                 <ul className="flex h-full flex-col space-y-5" {...provided.droppableProps} ref={provided.innerRef}>
                     {children}
