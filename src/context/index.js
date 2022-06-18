@@ -67,80 +67,28 @@ function BoardProvider({ children }) {
     }
     // If the card is moved within the same column and just needs an index change
     if (source.droppableId === destination.droppableId) {
-      const column = currentBoard.columns.filter(
+      const column = columns.find(
         (column) => column.name === source.droppableId
-      )[0];
-
-      const draggedTaskId = column.tasks[source.index];
-
-      const newTasks = Array.from(column.tasks);
-      newTasks.splice(source.index, 1);
-      newTasks.splice(destination.index, 0, draggedTaskId);
-
-      const newColumn = {
-        ...column,
-        tasks: newTasks,
-      };
-
-      const newBoard = {
-        ...currentBoard,
-        columns: currentBoard.columns.map((column) =>
-          column.name === source.droppableId ? newColumn : column
-        ),
-      };
-
-      setBoards((prevBoards) => {
-        const newBoards = [...prevBoards];
-        newBoards[
-          newBoards.findIndex((board) => board.name === newBoard.name)
-        ] = newBoard;
-        return newBoards;
-      });
-    }
-    // If the card has been moved to a different column
-    else {
-      const originalColumn = currentBoard.columns.filter(
-        (column) => column.name === source.droppableId
-      )[0];
-      const draggedTaskId = originalColumn.tasks[source.index];
-      const draggedTask = currentBoard.tasks.find(
-        (task) => task.id === draggedTaskId
       );
+      const taskId = column.tasks[source.index];
+      column.tasks.splice(source.index, 1);
+      column.tasks.splice(destination.index, 0, taskId);
+      setBoards([...boards]);
+    }
+    //If the card has been moved to a different column
+    else {
+      const column = columns.find(
+        (column) => column.name === source.droppableId
+      );
+      const taskId = column.tasks[source.index];
+      const draggedTask = currentBoard.tasks.find((task) => task.id === taskId);
       draggedTask.status = destination.droppableId;
-      const newTasks = Array.from(originalColumn.tasks);
-      newTasks.splice(source.index, 1);
-      const updatedOriginalColumn = {
-        ...originalColumn,
-        tasks: newTasks,
-      };
-      const newColumn = currentBoard.columns.filter(
+      column.tasks.splice(source.index, 1);
+      const newColumn = columns.find(
         (column) => column.name === destination.droppableId
-      )[0];
-      const newTasks2 = Array.from(newColumn.tasks);
-      newTasks2.splice(destination.index, 0, draggedTaskId);
-      const updatedNewColumn = {
-        ...newColumn,
-        tasks: newTasks2,
-      };
-      const newBoard = {
-        ...currentBoard,
-        columns: currentBoard.columns
-          .map((column) =>
-            column.name === source.droppableId ? updatedOriginalColumn : column
-          )
-          .map((column) =>
-            column.name === destination.droppableId ? updatedNewColumn : column
-          ),
-      };
-
-      setBoards((prevBoards) => {
-        const newBoards = [...prevBoards];
-        newBoards[
-          newBoards.findIndex((board) => board.name === newBoard.name)
-        ] = newBoard;
-
-        return newBoards;
-      });
+      );
+      newColumn.tasks.splice(destination.index, 0, taskId);
+      setBoards([...boards]);
     }
   };
 
