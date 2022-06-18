@@ -2,10 +2,12 @@ import Image from "next/image"
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import useOnClickOutside from "@hooks/useOnClickOutside";
+import { useBoards } from "@src/context";
 
-const EditButton = ({type, className=''}) => {
+const EditButton = ({ taskId, type, className=''}) => {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef();
+  const { deleteTask } = useBoards();
   useOnClickOutside(menuRef, () => setShowMenu(false));
 
   const menuVariations = {
@@ -36,10 +38,13 @@ const EditButton = ({type, className=''}) => {
             variants={menuVariations}
             initial="closed"
             animate={showMenu ? "open" : "closed"}
-            className={`${className} space-y-4 absolute body-lg rounded p-4 w-48 shadow-main capitalize bg-white dark:bg-veryDarkGrey`}
+            className={`${className} flex flex-col items-start space-y-4 absolute body-lg rounded p-4 w-48 shadow-main capitalize bg-white dark:bg-veryDarkGrey`}
         >
-            <p className="text-mediumGrey">Edit {type}</p>
-            <p className="text-mainRed">Delete {type}</p>
+            <button className="text-mediumGrey">Edit {type}</button>
+            <button
+            className="text-mainRed"
+            onClick={() => deleteTask(taskId)}
+            >Delete {type}</button>
         </motion.div>
     </div>
   )

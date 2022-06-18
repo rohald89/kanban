@@ -24,7 +24,6 @@ function BoardProvider({ children }) {
   };
 
   const toggleSubtask = (taskId, subtaskId) => {
-    console.log(taskId, subtaskId);
     const task = currentBoard.tasks.find((task) => task.id === taskId);
     const subtask = task.subtasks[subtaskId];
     subtask.isCompleted
@@ -43,6 +42,16 @@ function BoardProvider({ children }) {
     setBoards([...boards]);
   };
 
+  const deleteTask = (taskId) => {
+    const task = currentBoard.tasks.find((task) => task.id === taskId);
+    const column = columns.find((column) => column.name === task.status);
+    column.tasks = column.tasks.filter((id) => id !== taskId);
+    currentBoard.tasks = currentBoard.tasks.filter(
+      (task) => task.id !== taskId
+    );
+    setBoards([...boards]);
+  };
+
   const value = {
     boards,
     setBoards,
@@ -51,6 +60,7 @@ function BoardProvider({ children }) {
     toggleSubtask,
     createTask,
     changeTaskStatus,
+    deleteTask,
     setActiveBoard,
   };
   return (

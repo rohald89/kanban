@@ -9,7 +9,7 @@ const TaskDetailModal = ({ data, completedSubtasks }) => {
     <div className="w-[480px] min-w-11/12 mx-auto rounded-md p-6 bg-white dark:bg-darkGrey md:p-8">
         <div className="flex items-center justify-between gap-4 mb-6">
             <h1 className="heading-lg">{data.title}</h1>
-            <EditButton type="Task" className="bottom-0 left-0 -translate-x-2/4 translate-y-28"/>
+            <EditButton taskId={data.id} type="Task" className="bottom-0 left-0 -translate-x-2/4 translate-y-28"/>
         </div>
         <p className="body-lg text-mediumGrey">
             {data.description}
