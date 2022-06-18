@@ -33,14 +33,20 @@ function BoardProvider({ children }) {
 
   const createBoard = (board) => {
     board.id = uuidv4();
-    board.columns = board.columns.map((column) => {
-      return {
-        id: uuidv4(),
-        name: column,
-        slug: stringToSlug(column),
-        tasks: [],
-      };
-    });
+    const newColumns = [];
+    newColumns = board.columns.filter((e) => e);
+    newColumns.length
+      ? (newColumns = newColumns.map((column) => {
+          return {
+            id: uuidv4(),
+            name: column,
+            tasks: [],
+            slug: stringToSlug(column),
+          };
+        }))
+      : null;
+    console.log(newColumns);
+    board.columns = newColumns;
     board.tasks = [];
     setBoards([...boards, board]);
   };
@@ -72,6 +78,12 @@ function BoardProvider({ children }) {
       (task) => task.id !== taskId
     );
     setBoards([...boards]);
+  };
+
+  const deleteBoard = (boardId) => {
+    console.log(boardId);
+    setActiveBoard(0);
+    setBoards(boards.filter((board) => board.id !== boardId));
   };
 
   const dragTask = (source, destination) => {
@@ -124,6 +136,7 @@ function BoardProvider({ children }) {
     createTask,
     changeTaskStatus,
     deleteTask,
+    deleteBoard,
     dragTask,
     setActiveBoard,
   };

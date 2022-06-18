@@ -13,6 +13,7 @@ const Board = () => {
     dragTask(source, destination);
   }
 
+  console.log(currentBoard);
   if(!currentBoard.columns.length) return <EmptyBoard />
 
   return (

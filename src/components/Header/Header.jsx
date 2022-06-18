@@ -11,7 +11,7 @@ import EditButton from "@components/shared/EditButton";
 const Header = ({ sidebarVisible }) => {
   const {width} = useWindowSize();
   const [showMenu, setShowMenu] = useState(false);
-  const { currentBoard } = useBoards();
+  const { currentBoard, deleteBoard } = useBoards();
   const {theme} = useTheme();
 
   const logoAnimation = {
@@ -72,7 +72,7 @@ const Header = ({ sidebarVisible }) => {
         </div>
         <div className="flex items-center gap-4 p-8">
             <AddNewTask />
-            <EditButton type="board" className="bottom-0 left-0 -translate-x-full translate-y-28"/>
+            <EditButton onClick={() => deleteBoard(currentBoard.id)} type="board" className="bottom-0 left-0 -translate-x-full translate-y-28"/>
         </div>
     </header>
   )
