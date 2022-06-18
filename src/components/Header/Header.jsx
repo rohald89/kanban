@@ -60,7 +60,7 @@ const Header = ({ sidebarVisible }) => {
                             variants={logoAnimation}
                             initial="open"
                             animate={sidebarVisible ? "open" : "closed"}
-                            className={`p-8 box-border transition-all ease border-r border-r-darkGreyLine`}>
+                            className={`p-8 box-border transition-all ease border-r border-r-lightGreyLine dark:border-r-darkGreyLine`}>
                             <Image src={theme === 'dark' ? "/logo-light.svg" : "/logo-dark.svg"} alt="kanban logo" height={25} width={152}  />
                         </motion.div>
                         <h2 className="heading-lg ml-5 mr-2">{currentBoard.name}</h2>

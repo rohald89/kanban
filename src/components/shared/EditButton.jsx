@@ -28,7 +28,7 @@ const EditButton = ({type, className=''}) => {
 
   return (
     <div className="relative">
-        <button onClick={() => setShowMenu(!showMenu)}>
+        <button className="h-8 w-8" onClick={() => setShowMenu(!showMenu)}>
             <Image src="/icon-vertical-ellipsis.svg" height={16} width={4} />
         </button>
         <motion.div
