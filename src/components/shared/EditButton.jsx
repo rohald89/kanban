@@ -2,10 +2,13 @@ import Image from "next/image"
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import useOnClickOutside from "@hooks/useOnClickOutside";
+import Modal from "@components/Modal";
+import DeleteBoardModal from "@components/Modal/deleteBoardModal";
 
 
 const EditButton = ({ type, className='', onClick}) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const menuRef = useRef();
 
   useOnClickOutside(menuRef, () => setShowMenu(false));
@@ -43,8 +46,12 @@ const EditButton = ({ type, className='', onClick}) => {
             <button className="text-mediumGrey">Edit {type}</button>
             <button
             className="text-mainRed"
-            onClick={onClick}
-            >Delete {type}</button>
+            onClick={() => setShowDeleteModal(true)}
+            >Delete {type}
+            </button>
+            <Modal show={showDeleteModal} onClose={() => setShowDeleteModal(!showDeleteModal)}>
+                <DeleteBoardModal onClick={onClick} onClose={() => setShowDeleteModal(!showDeleteModal)}/>
+            </Modal>
         </motion.div>
     </div>
   )
