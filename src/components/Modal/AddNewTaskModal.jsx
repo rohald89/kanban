@@ -21,7 +21,7 @@ const AddNewTaskModal = () => {
     return (
         <form
         onSubmit={formik.handleSubmit}
-        className="w-[480px] min-w-11/12 mx-auto rounded-md p-6 bg-white dark:bg-darkGrey md:p-8">
+        className="w-full mx-auto rounded-md p-6 bg-white dark:bg-darkGrey md:p-8">
             <h1 className="heading-lg mb-6">Add New Task</h1>
 
             <label className="body-md text-mediumGrey dark:text-white block">

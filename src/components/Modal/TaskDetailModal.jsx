@@ -6,7 +6,7 @@ const TaskDetailModal = ({ data, completedSubtasks }) => {
   const { toggleSubtask, deleteTask} = useBoards();
 
   return (
-    <div className="w-[480px] min-w-11/12 mx-auto rounded-md p-6 bg-white dark:bg-darkGrey md:p-8">
+    <div className="w-full mx-auto rounded-md p-6 bg-white dark:bg-darkGrey md:p-8">
         <div className="flex items-center justify-between gap-4 mb-6">
             <h1 className="heading-lg">{data.title}</h1>
             <EditButton

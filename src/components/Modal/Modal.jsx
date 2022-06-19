@@ -57,7 +57,7 @@ const Modal = (props) => {
           exit="hidden"
           className={`modal fixed bg-opacity-50 flex left-0 right-0 top-0 bottom-0 bg-black z-50 items-center justify-center`}
         >
-          <motion.div ref={modalRef} variants={modalVariant}>
+          <motion.div className="w-full m-4 max-w-[480px]" ref={modalRef} variants={modalVariant}>
             {props.children}
           </motion.div>
         </motion.div>

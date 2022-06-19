@@ -47,7 +47,7 @@ const EditButton = ({ type, className='', onClick}) => {
         >
             <button
             className="text-mediumGrey"
-            onClick={() => showUpdateBoardModal(!showUpdateBoardModal)}
+            onClick={() => setShowUpdateBoardModal(!showUpdateBoardModal)}
             >
                 Edit {type}
             </button>
