@@ -8,32 +8,15 @@ import AddNewTask from "./AddNewTask";
 import { useBoards } from "@src/context";
 import EditButton from "@components/shared/EditButton";
 
-const Header = ({ sidebarVisible }) => {
+const Header = () => {
   const {width} = useWindowSize();
   const [showMenu, setShowMenu] = useState(false);
   const { currentBoard, deleteBoard } = useBoards();
   const {theme} = useTheme();
 
-  const logoAnimation = {
-    closed: {
-        width: 200,
-        transition: {
-            duration: 0.1,
-            ease: 'easeInOut',
-            delay: 0,
-        }
-    },
-    open: {
-        width: 300,
-        transition: {
-            duration: 0.1,
-            ease: "easeInOut",
-            delay: 0.2,
-        }
-    },
-  }
+
   return (
-    <header className="h-[85px] flex bg-white justify-between items-center border-b border-lightGreyLine dark:bg-darkGrey dark:text-white dark:border-darkGreyLine">
+    <header className="p-4 h-[85px] flex bg-white justify-between items-center border-b border-lightGreyLine dark:bg-darkGrey dark:text-white dark:border-darkGreyLine md:p-0">
         <div className="flex items-center ">
             <AnimatePresence>
             {
@@ -56,13 +39,10 @@ const Header = ({ sidebarVisible }) => {
                     </>
                 ) : (
                     <>
-                        <motion.div
-                            variants={logoAnimation}
-                            initial="open"
-                            animate={sidebarVisible ? "open" : "closed"}
-                            className={`p-8 box-border transition-all ease border-r border-r-lightGreyLine dark:border-r-darkGreyLine`}>
+                        <div
+                            className="w-[260px] lg:w-[300px] p-8 box-border transition-all ease border-r border-r-lightGreyLine dark:border-r-darkGreyLine">
                             <Image src={theme === 'dark' ? "/logo-light.svg" : "/logo-dark.svg"} alt="kanban logo" height={25} width={152}  />
-                        </motion.div>
+                        </div>
                         <h2 className="heading-lg ml-5 mr-2">{currentBoard.name}</h2>
                     </>
                 )
@@ -70,7 +50,7 @@ const Header = ({ sidebarVisible }) => {
             </AnimatePresence>
 
         </div>
-        <div className="flex items-center gap-4 p-8">
+        <div className="flex items-center gap-4 md:pr-4">
             <AddNewTask />
             <EditButton onClick={() => deleteBoard(currentBoard.id)} type="board" className="bottom-0 left-0 -translate-x-full translate-y-28"/>
         </div>

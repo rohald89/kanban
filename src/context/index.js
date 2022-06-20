@@ -75,10 +75,12 @@ function BoardProvider({ children }) {
     const task = currentBoard.tasks.find((task) => task.id === taskId);
     const column = columns.find((column) => column.name === task.status);
     column.tasks = column.tasks.filter((id) => id !== taskId);
+    console.log(currentBoard.tasks);
     currentBoard.tasks = currentBoard.tasks.filter(
       (task) => task.id !== taskId
     );
     setBoards([...boards]);
+    console.log(boards);
   };
 
   const deleteBoard = (boardId) => {

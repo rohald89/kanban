@@ -67,23 +67,6 @@ const AddNewTaskModal = () => {
                     />
                     ))
                 }
-                {/* <input
-                    id="subtasks[0]"
-                    name="subtasks[0]"
-                    type="text"
-                    onChange={formik.handleChange}
-                    value={formik.values.subtasks[0]}
-                    placeholder="e.g. Make coffee"
-                    className="bg-white dark:bg-darkGrey body-lg w-full px-4 py-2 my-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"
-                />
-                <input
-                    id="subtasks[1]"
-                    name="subtasks[1]"
-                    type="text"
-                    onChange={formik.handleChange}
-                    value={formik.values.subtasks[1]}
-                    placeholder="e.g. Drink coffee & smile"
-                    className="bg-white dark:bg-darkGrey body-lg w-full px-4 py-2 mb-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"/> */}
             </label>
 
             <Button

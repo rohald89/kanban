@@ -10,7 +10,7 @@ const Sidebar = ({ showSidebar, setShowSidebar}) => {
 
 
   return (
-        <div className={`pb-28 flex flex-col items-start py-7 border-r bg-white  border-lightGreyLine dark:bg-darkGrey dark:border-darkGreyLine transition-all ease linear duration-300 ${showSidebar ? 'translate-x-0 w-[300px]' : '-translate-x-[300px] w-0'}`}>
+        <div className={`pb-28 flex flex-col items-start py-7 border-r bg-white  border-lightGreyLine dark:bg-darkGrey dark:border-darkGreyLine transition-all duration-300 ${showSidebar ? 'translate-x-0 w-[260px] lg:w-[300px]' : '-translate-x-[300px] w-0'}`}>
             <BoardContainer/>
             <ThemeToggle />
             <SidebarToggle show={showSidebar} setShow={setShowSidebar}/>

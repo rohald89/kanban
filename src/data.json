@@ -2,8 +2,8 @@
     "boards": [
       {
         "id": 0,
-        "name": "Platform Launch Update",
-        "slug": "platform-launch-update",
+        "name": "Platform Launch",
+        "slug": "platform-launch",
         "tasks": [
             {
               "title": "Build UI for onboarding flow",
