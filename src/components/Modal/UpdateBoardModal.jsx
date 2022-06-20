@@ -14,6 +14,7 @@ const UpdateBoardModal = () => {
             columns: columns,
         },
         onSubmit: (values) => {
+            console.log(values);
             updateBoard(values);
         }
     })
@@ -50,9 +51,12 @@ const UpdateBoardModal = () => {
                             placeholder="e.g. Make coffee"
                             className="bg-white dark:bg-darkGrey body-lg w-full px-4 py-2 my-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"
                             />
-                            <button className="text-mediumGrey hover:text-mainPurple"
+                            <button
+                            type="button"
+                            className="text-mediumGrey hover:text-mainPurple"
                             onClick={() => {
                                 setColumns(columns.filter((_, i) => i !== index))
+                                formik.values.columns = columns.filter((_, i) => i !== index)
                             }}
                             >
                                 <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" fill-rule="evenodd"><path d="m12.728 0 2.122 2.122L2.122 14.85 0 12.728z"/><path d="M0 2.122 2.122 0 14.85 12.728l-2.122 2.122z"/></g></svg>
