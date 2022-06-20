@@ -18,7 +18,7 @@ const Column = ({data, children}) => {
             winReady ? (
             <Droppable droppableId={data.name}>
                 {(provided) => (
-                <ul className="flex h-full flex-col space-y-5" {...provided.droppableProps} ref={provided.innerRef}>
+                <ul className="scrollbar-thin scrollbar-thumb-mainPurple scrollbar-track-transparent overflow-y-scroll h-full pb-12 flex flex-col space-y-5" {...provided.droppableProps} ref={provided.innerRef}>
                     {children}
                     {provided.placeholder}
                 </ul>
