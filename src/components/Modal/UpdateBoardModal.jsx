@@ -4,7 +4,7 @@ import { useBoards } from "@src/context";
 import { useFormik } from "formik"
 import { useState } from "react";
 
-const UpdateBoardModal = () => {
+const UpdateBoardModal = ({onConfirm}) => {
     const { updateBoard, currentBoard } = useBoards();
     const [columns, setColumns] = useState(currentBoard.columns);
 
@@ -80,7 +80,9 @@ const UpdateBoardModal = () => {
                 + Add New Column
             </Button>
 
-            <Button type="submit" className="mt-6 w-full bg-mainPurple text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainPurpleHover">Save Changes</Button>
+            <Button type="submit" className="mt-6 w-full bg-mainPurple text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainPurpleHover"
+                onClick={() => onConfirm()}
+            >Save Changes</Button>
 
         </form>
       )

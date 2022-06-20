@@ -85,11 +85,10 @@ function BoardProvider({ children }) {
       columns: updatedBoard.columns,
     };
     newBoard.columns.forEach((column, index) => {
-      newBoard.columns[index].name = updatedBoard.columns[index].name;
-      newBoard.columns[index].slug = stringToSlug(
-        updatedBoard.columns[index].name
-      );
+      column.name = updatedBoard.columns[index].name;
+      column.slug = stringToSlug(updatedBoard.columns[index].name);
     });
+
     const boardIndex = boards.findIndex((board) => board.id === newBoard.id);
     boards[boardIndex] = newBoard;
     setBoards([...boards]);

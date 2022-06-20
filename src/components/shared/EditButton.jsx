@@ -54,7 +54,7 @@ const EditButton = ({ type, className='', onConfirm, switchToUpdate, switchToDel
                         Edit {type}
                     </button>
                     <Modal show={showUpdateBoardModal} onClose={() => setShowUpdateBoardModal(!showUpdateBoardModal)}>
-                        <UpdateBoardModal onConfirm={onConfirm} onClose={() => setShowUpdateBoardModal(!showUpdateBoardModal)} />
+                        <UpdateBoardModal onConfirm={() => setShowUpdateBoardModal(!showUpdateBoardModal)} />
                     </Modal>
                     <button
                     className="text-mainRed"
