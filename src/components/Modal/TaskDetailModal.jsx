@@ -3,7 +3,7 @@ import EditButton from "@components/shared/EditButton";
 import StatusDropdown from "@components/shared/StatusDropdown";
 
 const TaskDetailModal = ({ data, completedSubtasks, switchToUpdate, switchToDelete }) => {
-  const { toggleSubtask, deleteTask} = useBoards();
+  const { toggleSubtask } = useBoards();
 
   return (
     <div className="w-full mx-auto rounded-md p-6 bg-white dark:bg-darkGrey md:p-8">

@@ -40,7 +40,7 @@ const Task = ({ data, index }) => {
                     }} />
                 </Modal>
                 <Modal show={updateModal} onClose={() => setUpdateModal(!updateModal)}>
-                    <UpdateTaskModal data={data} />
+                    <UpdateTaskModal data={data} close={() => setUpdateModal(false)}/>
                 </Modal>
                 <Modal show={deleteModal} onClose={() => setDeleteModal(!deleteModal)}>
                     <DeleteTaskModal
