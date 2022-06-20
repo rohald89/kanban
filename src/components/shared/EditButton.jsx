@@ -9,7 +9,7 @@ import UpdateTaskModal from "@components/Modal/UpdateTaskModal";
 import DeleteBoardModal from "@components/Modal/deleteBoardModal";
 import UpdateBoardModal from "@components/Modal/UpdateBoardModal";
 
-const EditButton = ({ type, className='', onClick}) => {
+const EditButton = ({ data, type, className='', onClick, closeCurrentModal}) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showUpdateTaskModal, setShowUpdateTaskModal] = useState(false);
   const [showDeleteTaskModal, setShowDeleteTaskModal] = useState(false);
@@ -79,7 +79,7 @@ const EditButton = ({ type, className='', onClick}) => {
                         Edit {type}
                     </button>
                     <Modal show={showUpdateTaskModal} onClose={() => setShowUpdateTaskModal(!showUpdateTaskModal)}>
-                        <UpdateTaskModal onConfirm={onClick} onClose={() => setShowUpdateTaskModal(!showUpdateTaskModal)} />
+                        <UpdateTaskModal data={data} onConfirm={onClick} onClose={() => setShowUpdateTaskModal(!showUpdateTaskModal)} />
                     </Modal>
                     <button
                     className="text-mainRed"

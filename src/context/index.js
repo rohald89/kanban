@@ -59,7 +59,18 @@ function BoardProvider({ children }) {
     setBoards([...boards, board]);
   };
 
-  const updateBoard = (newBoard) => {
+  const updateBoard = (updatedBoard) => {
+    let newBoard = {
+      ...currentBoard,
+      name: updatedBoard.name,
+      columns: updatedBoard.columns,
+    };
+    newBoard.columns.forEach((column, index) => {
+      newBoard.columns[index].name = updatedBoard.columns[index].name;
+      newBoard.columns[index].slug = stringToSlug(
+        updatedBoard.columns[index].name
+      );
+    });
     const boardIndex = boards.findIndex((board) => board.id === newBoard.id);
     boards[boardIndex] = newBoard;
     setBoards([...boards]);

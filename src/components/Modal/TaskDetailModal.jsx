@@ -10,6 +10,7 @@ const TaskDetailModal = ({ data, completedSubtasks }) => {
         <div className="flex items-center justify-between gap-4 mb-6">
             <h1 className="heading-lg">{data.title}</h1>
             <EditButton
+            data={data}
             onClick={() => deleteTask(data.id)}
             taskId={data.id}
             type="Task"

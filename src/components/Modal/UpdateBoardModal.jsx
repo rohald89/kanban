@@ -1,27 +1,20 @@
+import { v4 as uuidv4 } from "uuid";
 import Button from "@components/shared/Button"
 import { useBoards } from "@src/context";
-import stringToSlug from "@utils/stringToSlug";
 import { useFormik } from "formik"
+import { useState } from "react";
 
 const UpdateBoardModal = () => {
     const { updateBoard, currentBoard } = useBoards();
+    const [columns, setColumns] = useState(currentBoard.columns);
 
     const formik = useFormik({
         initialValues: {
             name: currentBoard.name,
-            columns: currentBoard.columns,
+            columns: columns,
         },
         onSubmit: (values) => {
-            console.log(values);
-            let newBoard = {
-                ...currentBoard,
-                name: values.name,
-            }
-            newBoard.columns.forEach((column, index) => {
-                newBoard.columns[index].name = values.columns[index].name;
-                newBoard.columns[index].slug = stringToSlug(values.columns[index].name);
-            });
-            updateBoard(newBoard);
+            updateBoard(values);
         }
     })
     return (
@@ -46,22 +39,34 @@ const UpdateBoardModal = () => {
             <label className="body-md text-mediumGrey dark:text-white mt-6 block">
                 Board Columns
                 {
-                    currentBoard.columns.map((column, index) => (
-                        <input
-                        key={index}
-                        id={`columns[${index}].name`}
-                        name={`columns[${index}].name`}
-                        type="text"
-                        onChange={formik.handleChange}
-                        value={formik.values.columns[index].name}
-                        placeholder="e.g. Make coffee"
-                        className="bg-white dark:bg-darkGrey body-lg w-full px-4 py-2 my-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"
-                    />
-                    ))
+                    columns.map((column, index) => (
+                            <input
+                            key={index}
+                            id={`columns[${index}].name`}
+                            name={`columns[${index}].name`}
+                            type="text"
+                            onChange={formik.handleChange}
+                            value={formik.values.columns[index].name}
+                            placeholder="e.g. Make coffee"
+                            className="bg-white dark:bg-darkGrey body-lg w-full px-4 py-2 my-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"
+                        />
+                        )
+                    )
                 }
                 </label>
 
-            <Button className="w-full bg-mainPurple bg-opacity-10 text-mainPurple bold rounded-full p-2 pt-3 transition duration-200 hover:bg-opacity-25 dark:bg-opacity-100 dark:bg-white">+ Add New Column</Button>
+            <Button
+            onClick={() => {
+                const newColumn = {
+                    id: uuidv4(), name: "", slug: "", tasks: []
+                }
+                formik.values.columns = [...formik.values.columns, newColumn];
+                setColumns([...columns, newColumn]);
+            }}
+            type="button"
+            className="w-full bg-mainPurple bg-opacity-10 text-mainPurple bold rounded-full p-2 pt-3 transition duration-200 hover:bg-opacity-25 dark:bg-opacity-100 dark:bg-white">
+                + Add New Column
+            </Button>
 
             <Button type="submit" className="mt-6 w-full bg-mainPurple text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainPurpleHover">Save Changes</Button>
 

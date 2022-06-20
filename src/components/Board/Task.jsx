@@ -20,7 +20,7 @@ const Task = ({ data, index }) => {
                     <p className="body-md text-mediumGrey">{completedSubtasks} of {data.subtasks.length} subtasks</p>
                 </li>
                 <Modal show={openTaskModal} onClose={() => setOpenTaskModal(false)}>
-                    <TaskDetailModal data={data} completedSubtasks={completedSubtasks} />
+                    <TaskDetailModal data={data} completedSubtasks={completedSubtasks}/>
                 </Modal>
             </>
         )}
