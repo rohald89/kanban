@@ -19,7 +19,7 @@ const Board = () => {
   if(!currentBoard.columns.length) return <EmptyBoard />
 
   return (
-    <main className='overflow-hidden flex-1 p-4 space-x-4 bg-lightGrey dark:bg-veryDarkGrey flex'>
+    <main className='overflow-y-hidden scrollbar-thin scrollbar-thumb-mainPurple scrollbar-track-transparent flex-1 p-4 space-x-4 bg-lightGrey dark:bg-veryDarkGrey flex'>
         <DragDropContext
             onDragEnd={handleOnDragEnd}
         >
