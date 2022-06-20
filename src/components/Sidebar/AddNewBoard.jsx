@@ -11,7 +11,7 @@ const AddNewBoard = () => {
             + Create New Board
         </button>
         <Modal show={open} onClose={() => setOpen(false)}>
-            <AddNewBoardModal />
+            <AddNewBoardModal onClose={() => setOpen(false)} />
         </Modal>
     </div>
   )

@@ -32,8 +32,9 @@ function BoardProvider({ children }) {
   };
 
   const createBoard = (board) => {
+    console.log("HIIIII");
     board.id = uuidv4();
-    const newColumns = [];
+    let newColumns = [];
     newColumns = board.columns.filter((e) => e);
     newColumns.length
       ? (newColumns = newColumns.map((column) => {
@@ -81,7 +82,6 @@ function BoardProvider({ children }) {
   };
 
   const deleteBoard = (boardId) => {
-    console.log(boardId);
     setActiveBoard(0);
     setBoards(boards.filter((board) => board.id !== boardId));
   };

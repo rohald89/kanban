@@ -2,7 +2,7 @@ import Button from "@components/shared/Button"
 import { useBoards } from "@src/context";
 import { useFormik } from "formik"
 
-const AddNewBoardModal = () => {
+const AddNewBoardModal = ({onClose}) => {
     const { createBoard } = useBoards();
 
     const formik = useFormik({
@@ -11,14 +11,14 @@ const AddNewBoardModal = () => {
             columns: ['', ''],
         },
         onSubmit: (values) => {
-            console.log(values)
             createBoard(values)
+            onClose();
         }
     })
     return (
         <form
         onSubmit={formik.handleSubmit}
-        className="max-w-[480px] w-11/12 mx-auto rounded-md p-6 bg-white dark:bg-darkGrey md:p-8">
+        className="w-full mx-auto rounded-md p-6 bg-white dark:bg-darkGrey md:p-8">
             <h1 className="heading-lg mb-6">Add New Board</h1>
 
             <label className="body-md text-mediumGrey dark:text-white block">
