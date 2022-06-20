@@ -3,14 +3,18 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import useOnClickOutside from "@hooks/useOnClickOutside";
 import Modal from "@components/Modal";
+
+import DeleteTaskModal from "@components/Modal/deleteTaskModal";
+import UpdateTaskModal from "@components/Modal/UpdateTaskModal";
 import DeleteBoardModal from "@components/Modal/deleteBoardModal";
 import UpdateBoardModal from "@components/Modal/UpdateBoardModal";
 
-
 const EditButton = ({ type, className='', onClick}) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showUpdateTaskModal, setShowUpdateTaskModal] = useState(false);
+  const [showDeleteTaskModal, setShowDeleteTaskModal] = useState(false);
   const [showUpdateBoardModal, setShowUpdateBoardModal] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showDeleteBoardModal, setShowDeleteBoardModal] = useState(false);
   const menuRef = useRef();
 
   useOnClickOutside(menuRef, () => setShowMenu(false));
@@ -45,23 +49,49 @@ const EditButton = ({ type, className='', onClick}) => {
             animate={showMenu ? "open" : "closed"}
             className={`${className} flex flex-col items-start space-y-4 absolute body-lg rounded p-4 w-48 shadow-main capitalize bg-white dark:bg-veryDarkGrey`}
         >
-            <button
-            className="text-mediumGrey"
-            onClick={() => setShowUpdateBoardModal(!showUpdateBoardModal)}
-            >
-                Edit {type}
-            </button>
-            <Modal show={showUpdateBoardModal} onClose={() => setShowUpdateBoardModal(!showUpdateBoardModal)}>
-                <UpdateBoardModal onConfirm={onClick} onClose={() => setShowUpdateBoardModal(!showUpdateBoardModal)} />
-            </Modal>
-            <button
-            className="text-mainRed"
-            onClick={() => setShowDeleteModal(true)}
-            >Delete {type}
-            </button>
-            <Modal show={showDeleteModal} onClose={() => setShowDeleteModal(!showDeleteModal)}>
-                <DeleteBoardModal onConfirm={onClick} onClose={() => setShowDeleteModal(!showDeleteModal)}/>
-            </Modal>
+            { type === 'board' ? (
+                <>
+                    <button
+                    className="text-mediumGrey"
+                    onClick={() => setShowUpdateBoardModal(!showUpdateBoardModal)}
+                    >
+                        Edit {type}
+                    </button>
+                    <Modal show={showUpdateBoardModal} onClose={() => setShowUpdateBoardModal(!showUpdateBoardModal)}>
+                        <UpdateBoardModal onConfirm={onClick} onClose={() => setShowUpdateBoardModal(!showUpdateBoardModal)} />
+                    </Modal>
+                    <button
+                    className="text-mainRed"
+                    onClick={() => setShowDeleteBoardModal(true)}
+                    >Delete {type}
+                    </button>
+                    <Modal show={showDeleteBoardModal} onClose={() => setShowDeleteBoardModal(!showDeleteBoardModal)}>
+                        <DeleteBoardModal onConfirm={onClick} onClose={() => setShowDeleteBoardModal(!showDeleteBoardModal)}/>
+                    </Modal>
+                </>
+
+            ) : (
+                <>
+                    <button
+                    className="text-mediumGrey"
+                    onClick={() => setShowUpdateTaskModal(!showUpdateTaskModal)}
+                    >
+                        Edit {type}
+                    </button>
+                    <Modal show={showUpdateTaskModal} onClose={() => setShowUpdateTaskModal(!showUpdateTaskModal)}>
+                        <UpdateTaskModal onConfirm={onClick} onClose={() => setShowUpdateTaskModal(!showUpdateTaskModal)} />
+                    </Modal>
+                    <button
+                    className="text-mainRed"
+                    onClick={() => setShowDeleteTaskModal(true)}
+                    >Delete {type}
+                    </button>
+                    <Modal show={showDeleteTaskModal} onClose={() => setShowDeleteTaskModal(!showDeleteTaskModal)}>
+                        <DeleteTaskModal onConfirm={onClick} onClose={() => setShowDeleteTaskModal(!showDeleteTaskModal)}/>
+                    </Modal>
+                </>
+            )
+        }
         </motion.div>
     </div>
   )
