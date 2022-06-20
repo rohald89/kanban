@@ -7,6 +7,7 @@ import useWindowSize from "@hooks/useWindowSize";
 import AddNewTask from "./AddNewTask";
 import { useBoards } from "@src/context";
 import EditButton from "@components/shared/EditButton";
+import MobileBoardMenu from "@components/Modal/MobileBoardMenu";
 
 const Header = () => {
   const {width} = useWindowSize();
@@ -33,8 +34,12 @@ const Header = () => {
                             )
                         }
                     </button>
-                    <Modal show={showMenu} onClose={() => setShowMenu(!showMenu)}>
-                        <div className="h-96 w-96 bg-white">TEST</div>
+                    <Modal
+                    show={showMenu}
+                    onClose={() => setShowMenu(!showMenu)}
+                    className={"align-start pt-20"}
+                    >
+                        <MobileBoardMenu />
                     </Modal>
                     </>
                 ) : (

@@ -3,14 +3,14 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import useOnClickOutside from "@hooks/useOnClickOutside";
 
-const Modal = (props) => {
+const Modal = ({show, onClose, children, className = 'items-center justify-center'}) => {
   const [isBrowser, setIsBrowser] = useState(false);
   const modalRef = useRef();
-  useOnClickOutside(modalRef, () => props.onClose());
+  useOnClickOutside(modalRef, () => onClose());
 
   const closeOnEscapeKeyDown = (e) => {
     if ((e.charCode || e.keyCode) === 27) {
-      props.onClose();
+      onClose();
     }
   };
 
@@ -49,16 +49,16 @@ const Modal = (props) => {
 
   const modalContent = (
     <AnimatePresence>
-      {props.show ? (
+      {show ? (
         <motion.div
           variants={backdropVariant}
           initial="hidden"
           animate="visible"
           exit="hidden"
-          className={`modal fixed bg-opacity-50 flex left-0 right-0 top-0 bottom-0 bg-black z-50 items-center justify-center`}
+          className={`modal fixed left-0 right-0 top-0 bottom-0 bg-opacity-50 flex bg-black z-50 ${className}`}
         >
           <motion.div className="w-full m-4 max-w-[480px]" ref={modalRef} variants={modalVariant}>
-            {props.children}
+            {children}
           </motion.div>
         </motion.div>
       ) : null}
