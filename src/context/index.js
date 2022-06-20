@@ -59,6 +59,12 @@ function BoardProvider({ children }) {
     setBoards([...boards, board]);
   };
 
+  const updateBoard = (newBoard) => {
+    const boardIndex = boards.findIndex((board) => board.id === newBoard.id);
+    boards[boardIndex] = newBoard;
+    setBoards([...boards]);
+  };
+
   const toggleSubtask = (taskId, subtaskId) => {
     const task = currentBoard.tasks.find((task) => task.id === taskId);
     const subtask = task.subtasks[subtaskId];
@@ -145,6 +151,7 @@ function BoardProvider({ children }) {
     toggleSubtask,
     createTask,
     changeTaskStatus,
+    updateBoard,
     deleteTask,
     deleteBoard,
     dragTask,

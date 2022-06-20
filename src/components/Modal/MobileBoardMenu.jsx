@@ -7,7 +7,7 @@ const MobileBoardMenu = () => {
   return (
     <div className="bg-white dark:bg-darkGrey rounded-lg py-6">
         <h3 className="heading-sm ml-6 uppercase">All boards ({boards.length})</h3>
-        <div className="mt-8">
+        <div className="mt-8 mb-4">
             {
             boards.map((board, i) => (
                 <div key={i} className={`group text-mediumGrey cursor-pointer flex space-x-3 items-center pl-6 w-11/12 transition duration-500 bg-opacity-0 bg-mainPurple dark:hover:bg-white rounded-r-full hover:bg-opacity-10 hover:text-mainPurple ${currentBoard.name === boards[i].name && 'active-board'}`} onClick={() => setActiveBoard(i)}>

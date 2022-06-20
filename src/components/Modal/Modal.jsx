@@ -30,7 +30,6 @@ const Modal = ({show, onClose, children, className = 'items-center justify-cente
       opacity: 1,
       transition: {
         duration: 0.3,
-        // delayChildren: -0.1,
       },
     },
   };

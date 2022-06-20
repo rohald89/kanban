@@ -37,7 +37,7 @@ const Header = () => {
                     <Modal
                     show={showMenu}
                     onClose={() => setShowMenu(!showMenu)}
-                    className={"align-start pt-20"}
+                    className={"align-start pt-20 px-12"}
                     >
                         <MobileBoardMenu />
                     </Modal>

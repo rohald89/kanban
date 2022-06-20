@@ -42,14 +42,20 @@
   @apply bg-opacity-100 text-white;
 }
 
-.column:nth-of-type(3n + 1) h3 span {
+.column:nth-of-type(5n + 1) h3 span {
   @apply bg-[#49C4E5];
 }
-.column:nth-of-type(3n + 2) h3 span {
+.column:nth-of-type(5n + 2) h3 span {
   @apply bg-[#8471F2];
 }
-.column:nth-of-type(3n + 3) h3 span {
+.column:nth-of-type(5n + 3) h3 span {
   @apply bg-[#67E2AE];
+}
+.column:nth-of-type(5n + 4) h3 span {
+  @apply bg-[#ff6fa2];
+}
+.column:nth-of-type(5n + 5) h3 span {
+  @apply bg-[#ffca5e];
 }
 
 .board-height {
