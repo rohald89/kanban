@@ -57,7 +57,7 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-4 md:pr-4">
             <AddNewTask />
-            <EditButton onClick={() => deleteBoard(currentBoard.id)} type="board" className="bottom-0 left-0 -translate-x-full translate-y-28"/>
+            <EditButton onConfirm={() => deleteBoard(currentBoard.id)} type="board" className="bottom-0 left-0 -translate-x-full translate-y-28"/>
         </div>
     </header>
   )

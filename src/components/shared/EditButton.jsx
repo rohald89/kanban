@@ -4,15 +4,11 @@ import { motion } from "framer-motion";
 import useOnClickOutside from "@hooks/useOnClickOutside";
 import Modal from "@components/Modal";
 
-import DeleteTaskModal from "@components/Modal/deleteTaskModal";
-import UpdateTaskModal from "@components/Modal/UpdateTaskModal";
 import DeleteBoardModal from "@components/Modal/deleteBoardModal";
 import UpdateBoardModal from "@components/Modal/UpdateBoardModal";
 
-const EditButton = ({ data, type, className='', onClick, closeCurrentModal}) => {
+const EditButton = ({ type, className='', onConfirm, switchToUpdate, switchToDelete}) => {
   const [showMenu, setShowMenu] = useState(false);
-  const [showUpdateTaskModal, setShowUpdateTaskModal] = useState(false);
-  const [showDeleteTaskModal, setShowDeleteTaskModal] = useState(false);
   const [showUpdateBoardModal, setShowUpdateBoardModal] = useState(false);
   const [showDeleteBoardModal, setShowDeleteBoardModal] = useState(false);
   const menuRef = useRef();
@@ -58,7 +54,7 @@ const EditButton = ({ data, type, className='', onClick, closeCurrentModal}) => 
                         Edit {type}
                     </button>
                     <Modal show={showUpdateBoardModal} onClose={() => setShowUpdateBoardModal(!showUpdateBoardModal)}>
-                        <UpdateBoardModal onConfirm={onClick} onClose={() => setShowUpdateBoardModal(!showUpdateBoardModal)} />
+                        <UpdateBoardModal onConfirm={onConfirm} onClose={() => setShowUpdateBoardModal(!showUpdateBoardModal)} />
                     </Modal>
                     <button
                     className="text-mainRed"
@@ -66,7 +62,7 @@ const EditButton = ({ data, type, className='', onClick, closeCurrentModal}) => 
                     >Delete {type}
                     </button>
                     <Modal show={showDeleteBoardModal} onClose={() => setShowDeleteBoardModal(!showDeleteBoardModal)}>
-                        <DeleteBoardModal onConfirm={onClick} onClose={() => setShowDeleteBoardModal(!showDeleteBoardModal)}/>
+                        <DeleteBoardModal onConfirm={onConfirm} onClose={() => setShowDeleteBoardModal(!showDeleteBoardModal)}/>
                     </Modal>
                 </>
 
@@ -74,21 +70,15 @@ const EditButton = ({ data, type, className='', onClick, closeCurrentModal}) => 
                 <>
                     <button
                     className="text-mediumGrey"
-                    onClick={() => setShowUpdateTaskModal(!showUpdateTaskModal)}
-                    >
+                    onClick={() => switchToUpdate()}>
                         Edit {type}
                     </button>
-                    <Modal show={showUpdateTaskModal} onClose={() => setShowUpdateTaskModal(!showUpdateTaskModal)}>
-                        <UpdateTaskModal data={data} onConfirm={onClick} onClose={() => setShowUpdateTaskModal(!showUpdateTaskModal)} />
-                    </Modal>
                     <button
                     className="text-mainRed"
-                    onClick={() => setShowDeleteTaskModal(true)}
-                    >Delete {type}
+                    onClick={() => switchToDelete()}
+                    >
+                        Delete {type}
                     </button>
-                    <Modal show={showDeleteTaskModal} onClose={() => setShowDeleteTaskModal(!showDeleteTaskModal)}>
-                        <DeleteTaskModal onConfirm={onClick} onClose={() => setShowDeleteTaskModal(!showDeleteTaskModal)}/>
-                    </Modal>
                 </>
             )
         }

@@ -3,9 +3,13 @@ import { Draggable } from "react-beautiful-dnd";
 
 import Modal from "@components/Modal";
 import TaskDetailModal from "@components/Modal/TaskDetailModal";
+import UpdateTaskModal from "@components/Modal/UpdateTaskModal";
+import DeleteTaskModal from "@components/Modal/DeleteTaskModal";
 
 const Task = ({ data, index }) => {
   const [openTaskModal, setOpenTaskModal] = useState(false);
+  const [updateModal, setUpdateModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
 
   //number of completed subtasks
   const completedSubtasks = data.subtasks.reduce((acc, subtask) => subtask.isCompleted ? acc + 1 : acc, 0);
@@ -20,7 +24,24 @@ const Task = ({ data, index }) => {
                     <p className="body-md text-mediumGrey">{completedSubtasks} of {data.subtasks.length} subtasks</p>
                 </li>
                 <Modal show={openTaskModal} onClose={() => setOpenTaskModal(false)}>
-                    <TaskDetailModal data={data} completedSubtasks={completedSubtasks}/>
+                    <TaskDetailModal
+                    data={data}
+                    completedSubtasks={completedSubtasks}
+                    close={() => setOpenTaskModal(false)}
+                    switchToUpdate={() => {
+                        setOpenTaskModal(false);
+                        setUpdateModal(true);
+                    }}
+                    switchToDelete={() => {
+                        setOpenTaskModal(false);
+                        setDeleteModal(true);
+                    }} />
+                </Modal>
+                <Modal show={updateModal} onClose={() => setUpdateModal(!updateModal)}>
+                    <UpdateTaskModal data={data} />
+                </Modal>
+                <Modal show={deleteModal} onClose={() => setDeleteModal(!deleteModal)}>
+                    <DeleteTaskModal onClose={() => setDeleteModal(!deleteModal)}/>
                 </Modal>
             </>
         )}
