@@ -4,9 +4,10 @@ import Column from "./Column";
 import Task from "./Task";
 import EmptyBoard from "./EmptyBoard";
 import NewColumn from './NewColumn';
+import NoBoardsFound from './NoBoardsFound';
 
 const Board = () => {
-  const {currentBoard, dragTask} = useBoards();
+  const {currentBoard, boards, dragTask} = useBoards();
 
   function handleOnDragEnd(result) {
     const {source, destination} = result;
@@ -14,6 +15,7 @@ const Board = () => {
   }
 
   console.log(currentBoard);
+  if(!boards.length) return <NoBoardsFound />
   if(!currentBoard.columns.length) return <EmptyBoard />
 
   return (

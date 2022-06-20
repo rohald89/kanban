@@ -12,7 +12,7 @@ function BoardProvider({ children }) {
 
   const currentBoard = boards[activeBoard];
 
-  const columns = currentBoard.columns;
+  const columns = currentBoard?.columns;
 
   const createTask = (task) => {
     task.id = uuidv4();

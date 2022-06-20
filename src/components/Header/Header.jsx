@@ -24,7 +24,7 @@ const Header = () => {
                     <>
                     <Image src="/logo-mobile.svg" alt="kanban logo" height={25} width={24}  />
                     <button className="flex justify-center items-center" onClick={() => setShowMenu(true)}>
-                        <h2 className="heading-lg ml-5 mr-2">{currentBoard.name}</h2>
+                        <h2 className="heading-lg ml-5 mr-2">{currentBoard?.name || "No Board Found"}</h2>
                         {
                             showMenu ? (
                                 <Image src="/icon-chevron-up.svg" alt="chevron" height={4} width={8} />
@@ -43,7 +43,7 @@ const Header = () => {
                             className="w-[260px] lg:w-[300px] p-8 box-border transition-all ease border-r border-r-lightGreyLine dark:border-r-darkGreyLine">
                             <Image src={theme === 'dark' ? "/logo-light.svg" : "/logo-dark.svg"} alt="kanban logo" height={25} width={152}  />
                         </div>
-                        <h2 className="heading-lg ml-5 mr-2">{currentBoard.name}</h2>
+                        <h2 className="heading-lg ml-5 mr-2">{currentBoard?.name || "No Board Found"}</h2>
                     </>
                 )
             }
