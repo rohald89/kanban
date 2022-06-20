@@ -9,16 +9,16 @@ const Column = ({data, children}) => {
   }, [])
 
   return (
-    <div className="w-[280px] shrink-0">
+    <div className="column w-[280px] shrink-0">
         <h3 className="heading-sm uppercase mb-6">
-            <span className={`task-status-${data.slug} inline-block h-3 w-3 rounded-full mr-3`}></span>
+            <span className="task-status inline-block h-3 w-3 rounded-full mr-3"></span>
             {data.name} ({data.tasks.length})
         </h3>
         {
             winReady ? (
             <Droppable droppableId={data.name}>
                 {(provided) => (
-                <ul className="scrollbar-thin scrollbar-thumb-mainPurple scrollbar-track-transparent overflow-y-scroll h-full pb-12 flex flex-col space-y-5" {...provided.droppableProps} ref={provided.innerRef}>
+                <ul className="scrollbar-thin scrollbar-thumb-mainPurple scrollbar-track-transparent overflow-y-scroll h-full pb-12 flex flex-col gap-5" {...provided.droppableProps} ref={provided.innerRef}>
                     {children}
                     {provided.placeholder}
                 </ul>

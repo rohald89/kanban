@@ -42,19 +42,16 @@
   @apply bg-opacity-100 text-white;
 }
 
-.task-status-todo,
-.task-status-now {
+.column:nth-of-type(3n + 1) h3 span {
   @apply bg-[#49C4E5];
 }
-.task-status-doing,
-.task-status-next {
+.column:nth-of-type(3n + 2) h3 span {
   @apply bg-[#8471F2];
 }
-.task-status-done,
-.task-status-later {
+.column:nth-of-type(3n + 3) h3 span {
   @apply bg-[#67E2AE];
 }
 
 .board-height {
-  height: calc(100% - 86px);
+  height: calc(100% - 85px);
 }

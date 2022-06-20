@@ -31,6 +31,13 @@ function BoardProvider({ children }) {
     setBoards([...boards]);
   };
 
+  const createColumn = (column) => {
+    column.id = uuidv4();
+    column.tasks = [];
+    currentBoard.columns.push(column);
+    setBoards([...boards]);
+  };
+
   const createBoard = (board) => {
     console.log("HIIIII");
     board.id = uuidv4();
@@ -134,6 +141,7 @@ function BoardProvider({ children }) {
     currentBoard,
     columns,
     createBoard,
+    createColumn,
     toggleSubtask,
     createTask,
     changeTaskStatus,
