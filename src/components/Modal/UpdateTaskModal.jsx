@@ -5,17 +5,15 @@ import { useFormik } from "formik"
 import { useState } from 'react';
 
 const UpdateTaskModal = ({data}) => {
-    const { columns, createTask } = useBoards();
+    const { columns, updateTask } = useBoards();
     const [subtasks, setSubtasks] = useState(data.subtasks);
-    console.log(data);
 
     const formik = useFormik({
         initialValues: {
             ...data
         },
         onSubmit: (values) => {
-            console.log(values)
-            // createTask(values)
+            updateTask(values)
         }
     })
     return (
@@ -91,7 +89,7 @@ const UpdateTaskModal = ({data}) => {
                 </select>
             </label>
 
-            <Button type="submit" className="mt-6 w-full bg-mainPurple text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainPurpleHover">+ Add New Subtask</Button>
+            <Button type="submit" className="mt-6 w-full bg-mainPurple text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainPurpleHover">Save Changes</Button>
 
         </form>
       )

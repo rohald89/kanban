@@ -59,6 +59,25 @@ function BoardProvider({ children }) {
     setBoards([...boards, board]);
   };
 
+  const updateTask = (updatedTask) => {
+    const task = currentBoard.tasks.find((task) => task.id === updatedTask.id);
+    task.title = updatedTask.title;
+    task.subtasks = updatedTask.subtasks;
+    task.slug = stringToSlug(task.title);
+    if (updatedTask.status !== task.status) {
+      const column = currentBoard.columns.find(
+        (column) => column.name === updatedTask.status
+      );
+      const columnToRemove = currentBoard.columns.find(
+        (column) => column.name === task.status
+      );
+      columnToRemove.tasks.splice(columnToRemove.tasks.indexOf(task.id), 1);
+      column.tasks.push(task.id);
+    }
+    task.status = updatedTask.status;
+    setBoards([...boards]);
+  };
+
   const updateBoard = (updatedBoard) => {
     let newBoard = {
       ...currentBoard,
@@ -162,6 +181,7 @@ function BoardProvider({ children }) {
     toggleSubtask,
     createTask,
     changeTaskStatus,
+    updateTask,
     updateBoard,
     deleteTask,
     deleteBoard,

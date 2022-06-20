@@ -13,7 +13,6 @@ const TaskDetailModal = ({ data, completedSubtasks, switchToUpdate, switchToDele
             data={data}
             switchToUpdate={switchToUpdate}
             switchToDelete={switchToDelete}
-            onConfirm={() => deleteTask(data.id)}
             taskId={data.id}
             type="Task"
             className="bottom-0 left-0 -translate-x-2/4 translate-y-28"/>
