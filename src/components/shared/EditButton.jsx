@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import useOnClickOutside from "@hooks/useOnClickOutside";
 import Modal from "@components/Modal";
 
-import DeleteBoardModal from "@components/Modal/deleteBoardModal";
+import DeleteBoardModal from "@components/Modal/DeleteBoardModal";
 import UpdateBoardModal from "@components/Modal/UpdateBoardModal";
 
 const EditButton = ({ type, className='', onConfirm, switchToUpdate, switchToDelete}) => {
