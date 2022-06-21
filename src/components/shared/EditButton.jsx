@@ -36,7 +36,7 @@ const EditButton = ({ type, className='', onConfirm, switchToUpdate, switchToDel
   return (
     <div className="relative">
         <button className="h-8 w-8" onClick={() => setShowMenu(!showMenu)}>
-            <Image src="/icon-vertical-ellipsis.svg" height={16} width={4} />
+            <Image src="/icon-vertical-ellipsis.svg" alt="vertical ellipsis" height={16} width={4} />
         </button>
         <motion.div
             ref={menuRef}

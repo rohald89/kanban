@@ -1,8 +1,4 @@
-import { useBoards } from "@src/context"
-
 const DeleteTaskModal = ({onConfirm, onClose}) => {
-    const { currentBoard } = useBoards();
-    console.log(currentBoard)
     return (
       <div className="space-y-6 w-full mx-auto rounded-md p-6 bg-white dark:bg-darkGrey md:p-8">
           <h1 className="text-mainRed heading-lg">Delete this task?</h1>
@@ -11,7 +7,6 @@ const DeleteTaskModal = ({onConfirm, onClose}) => {
 
               <button className="flex-1 bg-mainRed text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainRedHover" onClick={() => {
                   onConfirm()
-                  onClose()
               }}>
                   Delete
               </button>

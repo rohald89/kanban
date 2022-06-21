@@ -10,9 +10,13 @@ const StatusDropdown = ({ data }) => {
   const menuVariations = {
     closed: {
         opacity: 0,
+        y: -10,
+        pointerEvents: 'none',
     },
     open: {
         opacity: 1,
+        y: 0,
+        pointerEvents: 'auto',
     }
 }
 

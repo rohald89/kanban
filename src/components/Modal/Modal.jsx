@@ -20,7 +20,7 @@ const Modal = ({show, onClose, children, className = 'items-center justify-cente
     return () => {
       document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
     };
-  }, []);
+  }, [closeOnEscapeKeyDown]);
 
   const backdropVariant = {
     hidden: {
