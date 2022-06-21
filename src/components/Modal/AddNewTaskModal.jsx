@@ -91,7 +91,7 @@ const AddNewTaskModal = () => {
                 onClick={() => setSubtasks([...subtasks, ''])}
             >+ Add New Subtask</Button>
 
-            <div className="relative">
+            <div className="relative mt-6">
                     <button
                         onClick={() => setShowMenu(!showMenu )}
                         type="button"
