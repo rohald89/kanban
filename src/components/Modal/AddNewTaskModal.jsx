@@ -1,6 +1,6 @@
 import Button from "@components/shared/Button"
 import { useBoards } from "@src/context";
-import { Formik, Form } from "formik";
+import { Formik, Form, FieldArray } from "formik";
 import * as Yup from 'yup';
 import { useState } from "react";
 import StatusDropdown from "@components/shared/StatusDropdown";
@@ -17,7 +17,7 @@ const AddNewTaskModal = ({onClose}) => {
         description: Yup.string().required("Description is required"),
         subtasks: Yup.array().of(
             Yup.object({
-                subtask : Yup.string().required("Subtask is required"),
+                subtask : Yup.string().required("Subtask can not be empty."),
             }),
         ),
         status: Yup.string().required("Status is required"),
@@ -47,29 +47,25 @@ const AddNewTaskModal = ({onClose}) => {
                         <TextArea label="Description" name="description" type="text" placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."/>
 
                         <label className="body-md text-mediumGrey dark:text-white mt-6 block">
-                            Subtask
-                            {
-                                subtasks.map((subtask, index) => (
-                                    // <TextInput name={`subtasks[${index}]`} id={`subtasks[${index}]`} type="text"  />
-                                    <input
-                                        key={index}
-                                        id={`subtasks[${index}]`}
-                                        name={`subtasks[${index}]`}
-                                        type="text"
-                                        onChange={formik.handleChange}
-                                        value={formik.values.subtasks[index]}
-                                        placeholder="e.g. Make coffee"
-                                        className="bg-white dark:bg-darkGrey body-lg w-full px-4 py-2 my-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"
-                                    />
-                                ))
-                            }
+                            Subtasks
                         </label>
+                        <FieldArray name="subtasks"
+                            render={arrayHelpers => (
+                                <div>
+                                    {formik.values.subtasks.map((subtask, i) => (
+                                        <div key={i} className="flex">
+                                            <TextInput name={`subtasks[${i}].subtask`} type="text" placeholder="e.g. Take a break"/>
+                                            <Button onClick={() => arrayHelpers.remove(i)} className="text-mediumGrey hover:text-mainPurple">
+                                                <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" fillRule="evenodd"><path d="m12.728 0 2.122 2.122L2.122 14.85 0 12.728z"/><path d="M0 2.122 2.122 0 14.85 12.728l-2.122 2.122z"/></g></svg>
+                                            </Button>
+                                        </div>
+                                    ))}
+                                <Button onClick={() => arrayHelpers.push({subtask: ''})}
+                                className="w-full bg-mainPurple bg-opacity-10 text-mainPurple bold rounded-full p-2 pt-3 transition duration-200 hover:bg-opacity-25 dark:bg-opacity-100 dark:bg-white">+ Add New Subtask</Button>
+                                </div>
+                            )}
+                        />
 
-                        <Button
-                            type="button"
-                            className="w-full bg-mainPurple bg-opacity-10 text-mainPurple bold rounded-full p-2 pt-3 transition duration-200 hover:bg-opacity-25 dark:bg-opacity-100 dark:bg-white"
-                            onClick={() => setSubtasks([...subtasks, ''])}
-                        >+ Add New Subtask</Button>
 
                         <StatusDropdown status={status} setStatus={setStatus}/>
 
