@@ -1,6 +1,5 @@
 import Modal from "@components/Modal";
 import AddNewTaskModal from "@components/Modal/AddNewTaskModal";
-import Button from "@components/shared/Button";
 import useWindowSize from "@hooks/useWindowSize";
 import Image from "next/image";
 import { useState } from "react";
@@ -13,13 +12,13 @@ const AddNewTask = () => {
     <>
         {
         width > 768 ? (
-            <Button className="btn btn__primary btn-lg" onClick={() => setOpenTaskModal(true)}>
+            <button className="btn btn__primary btn-lg" onClick={() => setOpenTaskModal(true)}>
                 + Add New Task
-            </Button>
+            </button>
         ) : (
-            <Button className="btn btn__primary px-5 flex justify-center items-center" onClick={() => setOpenTaskModal(true)}>
+            <button className="btn btn__primary px-5 flex justify-center items-center" onClick={() => setOpenTaskModal(true)}>
                 <Image src="/icon-add-task-mobile.svg" alt="plus icon" height={12} width={12} />
-            </Button>
+            </button>
         )}
         <Modal show={openTaskModal} onClose={() => setOpenTaskModal(false)}>
             <AddNewTaskModal />
