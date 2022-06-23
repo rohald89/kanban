@@ -2,10 +2,9 @@ import { motion } from "framer-motion";
 import { useBoards } from "@src/context";
 import { useState } from "react";
 
-const StatusDropdown = ({ data }) => {
-  const [status, setStatus] = useState(data.status);
-  const [showMenu, setShowMenu] = useState(false);
+const StatusDropdown = ({ data = null, status, setStatus }) => {
   const { columns, changeTaskStatus } = useBoards();
+  const [showMenu, setShowMenu] = useState(false);
 
   const menuVariations = {
     closed: {
@@ -30,7 +29,7 @@ const StatusDropdown = ({ data }) => {
             aria-expanded="true"
             aria-haspopup="true"
         >
-            {status}
+            {status || data.status}
             <svg className="-mr-1 ml-2 h-5 w-5 fill-mainPurple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
@@ -48,9 +47,12 @@ const StatusDropdown = ({ data }) => {
                 {columns.map((column, i) => (
                     <a
                     onClick={() => {
-                        setStatus(column.name);
+                        if(status) {
+                            setStatus(column.name);
+                        } else {
+                            changeTaskStatus(data.id, column.name);
+                        }
                         setShowMenu(false)
-                        changeTaskStatus(data.id, column.name);
                     }}
                     key={i}
                     href="#"
