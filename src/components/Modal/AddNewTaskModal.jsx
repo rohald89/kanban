@@ -10,14 +10,13 @@ import TextArea from "@components/shared/TextArea";
 const AddNewTaskModal = ({onClose}) => {
     const { columns, createTask } = useBoards();
     const [status, setStatus] = useState(columns[0].name);
-    const [subtasks, setSubtasks] = useState(['', '']);
 
     const validate = Yup.object({
         title: Yup.string().required("Title is required"),
         description: Yup.string().required("Description is required"),
         subtasks: Yup.array().of(
             Yup.object({
-                subtask : Yup.string().required("Subtask can not be empty."),
+                title : Yup.string().required("Subtask can not be empty."),
             }),
         ),
         status: Yup.string().required("Status is required"),
@@ -28,11 +27,12 @@ const AddNewTaskModal = ({onClose}) => {
             initialValues={{
                 title: "",
                 description: "",
-                subtasks: subtasks,
+                subtasks: ['', ''],
                 status: status
             }}
             validationSchema={validate}
             onSubmit={ (values) => {
+                console.log('test');
                 values.status = status;
                 createTask(values)
                 onClose()
@@ -54,18 +54,17 @@ const AddNewTaskModal = ({onClose}) => {
                                 <div>
                                     {formik.values.subtasks.map((subtask, i) => (
                                         <div key={i} className="flex">
-                                            <TextInput name={`subtasks[${i}].subtask`} type="text" placeholder="e.g. Take a break"/>
+                                            <TextInput name={`subtasks[${i}].title`} type="text" placeholder="e.g. Take a break"/>
                                             <Button onClick={() => arrayHelpers.remove(i)} className="text-mediumGrey hover:text-mainPurple">
                                                 <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" fillRule="evenodd"><path d="m12.728 0 2.122 2.122L2.122 14.85 0 12.728z"/><path d="M0 2.122 2.122 0 14.85 12.728l-2.122 2.122z"/></g></svg>
                                             </Button>
                                         </div>
                                     ))}
-                                <Button onClick={() => arrayHelpers.push({subtask: ''})}
+                                <Button onClick={() => arrayHelpers.push({title: ''})}
                                 className="w-full bg-mainPurple bg-opacity-10 text-mainPurple bold rounded-full p-2 pt-3 transition duration-200 hover:bg-opacity-25 dark:bg-opacity-100 dark:bg-white">+ Add New Subtask</Button>
                                 </div>
                             )}
                         />
-
 
                         <StatusDropdown status={status} setStatus={setStatus}/>
 

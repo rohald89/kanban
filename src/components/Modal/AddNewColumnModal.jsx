@@ -2,7 +2,7 @@ import Button from "@components/shared/Button"
 import { useBoards } from "@src/context";
 import { useFormik } from "formik"
 
-const AddNewColumnModal = () => {
+const AddNewColumnModal = ({ onClose }) => {
     const { createColumn } = useBoards();
 
     const formik = useFormik({
@@ -10,8 +10,8 @@ const AddNewColumnModal = () => {
             name: "",
         },
         onSubmit: (values) => {
-            console.log(values)
             createColumn(values)
+            onClose()
         }
     })
     return (

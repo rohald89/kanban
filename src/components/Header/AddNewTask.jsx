@@ -21,7 +21,7 @@ const AddNewTask = () => {
             </button>
         )}
         <Modal show={openTaskModal} onClose={() => setOpenTaskModal(false)}>
-            <AddNewTaskModal />
+            <AddNewTaskModal onClose={() => setOpenTaskModal(!openTaskModal)} />
         </Modal>
     </>
   )

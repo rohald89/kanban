@@ -20,7 +20,7 @@ function BoardProvider({ children }) {
     task.status = column.name;
     task.subtasks = task.subtasks.map((subtask) => {
       return {
-        title: subtask,
+        ...subtask,
         isCompleted: false,
       };
     });

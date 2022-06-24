@@ -11,7 +11,7 @@ const NewColumn = () => {
             + New Column
         </button>
         <Modal show={openModal} onClose={() => setOpenModal(false)}>
-            <AddNewColumnModal />
+            <AddNewColumnModal onClose={() => setOpenModal(false)}/>
         </Modal>
     </>
   )
