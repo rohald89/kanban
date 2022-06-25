@@ -7,7 +7,7 @@
     @apply font-bold text-xl;
   }
   .heading-lg {
-    @apply font-bold text-lg md:text-xl;
+    @apply font-bold text-lg;
   }
   .heading-md {
     @apply font-bold text-md;

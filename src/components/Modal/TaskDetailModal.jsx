@@ -25,22 +25,20 @@ const TaskDetailModal = ({ data, completedSubtasks, switchToUpdate, switchToDele
         </h3>
         {
             data.subtasks.map((subtask, i) => (
-                <label key={i} className={`${subtask.isCompleted ? "text-mediumGrey line-through" : "text-black"} dark:text-white p-3 mb-2 block rounded bg-lightGrey dark:bg-veryDarkGrey`}>
+                <label key={i} htmlFor={`${subtask}-${i}`} className={`body-md p-3 mb-2 inline-flex w-full rounded transition bg-lightGrey hover:bg-mainPurple hover:bg-opacity-25 dark:text-white dark:bg-veryDarkGrey`}>
                     <input
+                    id={`${subtask}-${i}`}
                     type="checkbox"
                     checked={subtask.isCompleted}
-                    className="mr-3"
+                    className="mr-3 accent-mainPurple"
                     onChange={() => toggleSubtask(data.id, i)}
                     />
-                    {subtask.title}
+                    <span className={`${subtask.isCompleted ? "opacity-50 line-through" : "opacity-100"} transition`}>{subtask.title}</span>
                 </label>
             ))
         }
-        <h3 className="mt-6 mb-4 body-md text-mediumGrey dark:text-white">
-            Current Status
-        </h3>
 
-        <StatusDropdown data={data} />
+        <StatusDropdown label="Current Status" data={data} />
 
     </div>
   )
