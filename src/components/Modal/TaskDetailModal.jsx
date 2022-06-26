@@ -10,7 +10,6 @@ const TaskDetailModal = ({ data, completedSubtasks, switchToUpdate, switchToDele
         <div className="flex items-center justify-between gap-4 mb-6">
             <h1 className="heading-lg">{data.title}</h1>
             <EditButton
-            data={data}
             switchToUpdate={switchToUpdate}
             switchToDelete={switchToDelete}
             taskId={data.id}
@@ -25,7 +24,7 @@ const TaskDetailModal = ({ data, completedSubtasks, switchToUpdate, switchToDele
         </h3>
         {
             data.subtasks.map((subtask, i) => (
-                <label key={i} htmlFor={`${subtask}-${i}`} className={`body-md p-3 mb-2 inline-flex w-full rounded transition bg-lightGrey hover:bg-mainPurple hover:bg-opacity-25 dark:text-white dark:bg-veryDarkGrey dark:hover:bg-mainPurple dark:hover:bg-opacity-25`}>
+                <label key={i} htmlFor={`${subtask}-${i}`} className={`body-md p-3 mb-2 inline-flex w-full rounded transition bg-lightGrey cursor-pointer hover:bg-mainPurple hover:bg-opacity-25 dark:text-white dark:bg-veryDarkGrey dark:hover:bg-mainPurple dark:hover:bg-opacity-25`}>
                     <input
                     id={`${subtask}-${i}`}
                     type="checkbox"

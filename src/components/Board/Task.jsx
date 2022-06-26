@@ -44,6 +44,7 @@ const Task = ({ data, index }) => {
                 </Modal>
                 <Modal show={deleteModal} onClose={() => setDeleteModal(!deleteModal)}>
                     <DeleteTaskModal
+                    title={data.title}
                     onClose={() => {
                         setDeleteModal(false);
                         setOpenTaskModal(true);
