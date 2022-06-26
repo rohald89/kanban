@@ -9,7 +9,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <title>Kanban - Task Management</title>
+        </Head>
         <body>
           <Main />
           <div id="modal" />
