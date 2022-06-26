@@ -14,7 +14,6 @@ const Board = () => {
     dragTask(source, destination);
   }
 
-  console.log(currentBoard);
   if(!boards.length) return <NoBoardsFound />
   if(!currentBoard.columns.length) return <EmptyBoard />
 
