@@ -1,12 +1,11 @@
 import Button from "@components/shared/Button"
 import TextInput from "@components/shared/TextInput";
 import { useBoards } from "@src/context";
-import { FieldArray, Form, Formik, useFormik } from "formik"
+import { FieldArray, Form, Formik } from "formik"
 import * as Yup from 'yup';
 
 const AddNewBoardModal = ({onClose}) => {
     const { createBoard } = useBoards();
-
 
     const validate = Yup.object({
         name: Yup.string().required("Can't be empty"),
@@ -59,6 +58,9 @@ const AddNewBoardModal = ({onClose}) => {
                                 </div>
                             )}
                         />
+
+                        <Button type="submit" className="mt-6 w-full bg-mainPurple text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainPurpleHover">Save Changes</Button>
+
                     </Form>
                 </div>
         )}

@@ -19,17 +19,6 @@ const UpdateBoardModal = ({onConfirm}) => {
         )
     })
 
-
-    // const formik = useFormik({
-    //     initialValues: {
-    //         name: currentBoard.name,
-    //         columns: columns,
-    //     },
-    //     onSubmit: (values) => {
-    //         console.log(values);
-    //         updateBoard(values);
-    //     }
-    // })
     return (
         <Formik
             initialValues={{
@@ -39,6 +28,7 @@ const UpdateBoardModal = ({onConfirm}) => {
             validationSchema={validate}
             onSubmit={ (values) => {
                 updateBoard(values);
+                onConfirm();
             }
             }
         >
@@ -69,8 +59,7 @@ const UpdateBoardModal = ({onConfirm}) => {
                                     </div>
                                 ))}
                                 <Button onClick={() => arrayHelpers.push({ id: uuidv4(), name: "", slug: '', tasks: []})} className="w-full bg-mainPurple bg-opacity-10 text-mainPurple bold rounded-full p-2 pt-3 mt-3 transition duration-200 hover:bg-opacity-25 dark:bg-opacity-100 dark:bg-white">+ Add New Column</Button>
-                                <Button type="submit" className="mt-6 w-full bg-mainPurple text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainPurpleHover" onClick={() => onConfirm()}
-                                >Save Changes</Button>
+                                <Button type="submit" className="mt-6 w-full bg-mainPurple text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainPurpleHover">Save Changes</Button>
                             </div>
                         )}
                     />
