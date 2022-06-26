@@ -1,98 +1,79 @@
 import Button from "@components/shared/Button"
 import StatusDropdown from "@components/shared/StatusDropdown";
+import TextInput from "@components/shared/TextInput";
 import { useBoards } from "@src/context";
-import { useFormik } from "formik"
+import { Formik, Form, FieldArray } from "formik";
+import * as Yup from 'yup';
 import { useState } from 'react';
+import TextArea from "@components/shared/TextArea";
 
 const UpdateTaskModal = ({data, close}) => {
     const { updateTask } = useBoards();
     const [status, setStatus ] = useState(data.status);
     const [subtasks, setSubtasks] = useState(data.subtasks);
 
-    const formik = useFormik({
-        initialValues: {
+
+    const validate = Yup.object({
+        title: Yup.string().required("Can't be empty"),
+        description: Yup.string().required("Can't be empty"),
+        subtasks: Yup.array().of(
+            Yup.object({
+                title : Yup.string().required("Can't be empty"),
+            }),
+        ),
+        status: Yup.string().required("Can't be empty"),
+
+    })
+
+    return (
+
+        <Formik
+        initialValues={{
             ...data,
-            subtasks: subtasks
-        },
-        onSubmit: (values) => {
+            status: status
+        }}
+        validationSchema={validate}
+        onSubmit={ (values) => {
             values.status = status;
             updateTask(values)
             close();
-        }
-    })
-    return (
-        <form
-        onSubmit={formik.handleSubmit}
-        className="w-full mx-auto rounded-md p-6 bg-white dark:bg-darkGrey md:p-8">
-            <h1 className="heading-lg mb-6">Edit Task</h1>
+        }}
+        >
+        { formik => (
+            <div className="w-full mx-auto rounded-md p-6 bg-white dark:bg-darkGrey md:p-8">
+                <h1 className="heading-lg mb-6">Edit Task</h1>
+                <Form>
+                    <TextInput label="Title" name="title" type="text" placeholder="e.g. Take coffee break"/>
+                    <TextArea label="Description" name="description" type="text" placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."/>
 
-            <label className="body-md text-mediumGrey dark:text-white block">
-                Title
-                <input
-                    id="title"
-                    name="title"
-                    type="text"
-                    onChange={formik.handleChange}
-                    value={formik.values.title}
-                    placeholder="e.g. Take coffee break"
-                    className="bg-white dark:bg-darkGrey body-lg w-full px-4 py-2 my-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"
-                />
-            </label>
+                    <label className="body-md text-mediumGrey dark:text-white mt-6 block">
+                        Subtasks
+                    </label>
+                    <FieldArray name="subtasks"
+                        render={arrayHelpers => (
+                            <div>
+                                {formik.values.subtasks.map((subtask, i) => (
+                                    <div key={i} className="flex">
+                                        <TextInput name={`subtasks[${i}].title`} type="text" placeholder="e.g. Take a break"/>
+                                        <Button type="button" onClick={() => arrayHelpers.remove(i)} className="text-mediumGrey hover:text-mainRed ml-4">
+                                            <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" fillRule="evenodd"><path d="m12.728 0 2.122 2.122L2.122 14.85 0 12.728z"/><path d="M0 2.122 2.122 0 14.85 12.728l-2.122 2.122z"/></g></svg>
+                                        </Button>
+                                    </div>
+                                ))}
+                            <Button onClick={() => arrayHelpers.push({title: ''})}
+                            className="w-full bg-mainPurple bg-opacity-10 text-mainPurple bold rounded-full p-2 pt-3 transition duration-200 hover:bg-opacity-25 dark:bg-opacity-100 dark:bg-white">+ Add New Subtask</Button>
+                            </div>
+                        )}
+                    />
 
-            <label className="body-md text-mediumGrey dark:text-white mt-6 block">
-                Description
-                <textarea
-                    id="description"
-                    name="description"
-                    type="text"
-                    onChange={formik.handleChange}
-                    value={formik.values.description}
-                    placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."
-                    className="bg-white dark:bg-darkGrey body-lg w-full h-28 px-4 py-2 my-2 block rounded text-black dark:text-white resize-none border border-mediumGrey border-opacity-25 placeholder:opacity-25"
-                />
-            </label>
+                    <StatusDropdown status={status} setStatus={setStatus}/>
 
-            <label className="body-md text-mediumGrey dark:text-white mt-6 block">
-                Subtask
-                {
-                    subtasks.map((subtask, index) => (
-                        <div className="flex gap-4" key={index}>
-                            <input
-                            id={`subtasks[${index}].title`}
-                            name={`subtasks[${index}].title`}
-                            type="text"
-                            onChange={formik.handleChange}
-                            value={formik.values.subtasks[index].title}
-                            placeholder="e.g. Make coffee"
-                            className="bg-white dark:bg-darkGrey body-lg w-full px-4 py-2 my-2 block rounded border text-black dark:text-white border-mediumGrey border-opacity-25 placeholder:opacity-25"
-                            />
-                            <button type="button" className="text-mediumGrey hover:text-mainPurple"
-                            onClick={() => {
-                                subtasks.splice(index, 1);
-                                setSubtasks([...subtasks]);
-                            }}
-                            >
-                                <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" fillRule="evenodd"><path d="m12.728 0 2.122 2.122L2.122 14.85 0 12.728z"/><path d="M0 2.122 2.122 0 14.85 12.728l-2.122 2.122z"/></g></svg>
-                            </button>
-                        </div>
+                    <Button type="submit" className="mt-6 w-full bg-mainPurple text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainPurpleHover">Save Changes</Button>
+                </Form>
+            </div>
+        )}
+        </Formik>
 
-                    ))
-                }
-            </label>
-
-            <Button
-                type="button"
-                className="w-full bg-mainPurple bg-opacity-10 text-mainPurple bold rounded-full p-2 pt-3 transition duration-200 hover:bg-opacity-25 dark:bg-opacity-100 dark:bg-white"
-                onClick={() => {
-                    formik.values.subtasks = [...subtasks, { title: '', isCompleted: false }]
-                    setSubtasks([...subtasks, { title: '', isCompleted: false }])}}
-            >+ Add New Subtask</Button>
-
-            <StatusDropdown data={data} status={status} setStatus={setStatus} />
-
-            <Button type="submit" className="mt-6 w-full bg-mainPurple text-white text-base rounded-full p-2 transition duration-200 hover:bg-mainPurpleHover">Save Changes</Button>
-
-        </form>
       )
 }
 export default UpdateTaskModal
