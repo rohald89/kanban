@@ -27,7 +27,7 @@ const StatusDropdown = ({ label = "Status", data = null, status, setStatus }) =>
         <button
             onClick={() => setShowMenu(!showMenu )}
             type="button"
-            className="inline-flex justify-between items-center w-full rounded-md outline outline-1 outline-lightGreyLine shadow-sm px-4 py-2 bg-white text-sm font-medium text-black focus:outline-mainPurple dark:bg-darkGrey dark:text-white"
+            className="inline-flex justify-between items-center w-full rounded-md outline outline-1 outline-lightGreyLine shadow-sm px-4 py-2 bg-white text-sm font-medium text-black focus:outline-mainPurple dark:bg-darkGrey dark:text-white dark:outline-darkGreyLine"
             id="menu-button"
             aria-expanded="true"
             aria-haspopup="true"

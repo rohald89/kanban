@@ -16,7 +16,7 @@
     @apply font-bold text-sm text-mediumGrey tracking-widest;
   }
   .body-lg {
-    @apply text-base;
+    @apply text-base font-normal;
   }
   .body-md {
     @apply font-bold text-sm;

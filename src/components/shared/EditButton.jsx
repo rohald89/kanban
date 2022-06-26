@@ -43,7 +43,7 @@ const EditButton = ({ type, className='', onConfirm, switchToUpdate, switchToDel
             variants={menuVariations}
             initial="closed"
             animate={showMenu ? "open" : "closed"}
-            className={`${className} flex flex-col items-start space-y-4 absolute body-lg rounded p-4 w-48 shadow-main capitalize bg-white dark:bg-veryDarkGrey`}
+            className={`${className} flex flex-col items-start space-y-4 absolute body-lg rounded-lg p-4 w-48 shadow-main capitalize bg-white dark:bg-veryDarkGrey`}
         >
             { type === 'board' ? (
                 <>
