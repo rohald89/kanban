@@ -47,7 +47,7 @@ Users are able to:
 
 ### Continued development
 
-This project is still a work in progress, expect these additions soon:
+This project is a work in progress, expect these additions soon:
 
 - Convert the project to a FullStack application so the user is able to create an account and have access to their boards on different devices
 - Change the order of existing columns
